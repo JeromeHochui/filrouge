@@ -51,6 +51,9 @@ public class Product {
 	@Column(name = "alcohol_percentage")
 	private Float alcoholPercentage;
 	
+	@Column(name = "stock")
+	private Integer stock;
+	
 	@Column(name = "container")
 	@Enumerated(EnumType.STRING)
 	private Container container;
