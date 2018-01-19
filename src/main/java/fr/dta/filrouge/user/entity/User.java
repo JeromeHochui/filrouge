@@ -16,10 +16,10 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "user")
-@SequenceGenerator(name = "user_id_seq", sequenceName = "user_id_seq", initialValue = 0, allocationSize = 1)
+@SequenceGenerator(name = "item_id_seq", sequenceName = "item_id_seq", initialValue = 0, allocationSize = 1)
 public class User {
 	@Id
-	@GeneratedValue(generator = "user_id_seq")
+	@GeneratedValue(generator = "item_id_seq")
 	@Column(name = "id")
 	private Long id;
 
@@ -54,8 +54,7 @@ public class User {
 	public User() {
 	}
 
-	public User(Long id, String lastname, String firstname, String adress, String phone, String mail, Date birthdate, String password) {
-		this.id = id;
+	public User(String lastname, String firstname, String adress, String phone, String mail, Date birthdate, String password) {
 		this.lastname = lastname;
 		this.firstname = firstname;
 		this.adress = adress;
@@ -85,6 +84,10 @@ public class User {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	
+	public String toString() {
+		return "{id: " + this.id + ", lastname:" + this.lastname + ", firstname:" + this.firstname + ", adress:" + this.adress + ", phone:" + this.phone + ", mail:" + this.mail + ", birthdate:" + this.birthdate + "}";
 	}
 
 	public Long getId() {return id;}
