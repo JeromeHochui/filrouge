@@ -1,11 +1,14 @@
 package fr.dta.filrouge.user.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -14,8 +17,14 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import fr.dta.filrouge.orders.entity.Orders;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @SequenceGenerator(name = "item_id_seq", sequenceName = "item_id_seq", initialValue = 0, allocationSize = 1)
 public class User {
 	@Id
@@ -50,6 +59,9 @@ public class User {
 	@Column(name = "password")
 	@NotBlank
 	private String password;
+	
+	@OneToMany(mappedBy="users")
+	private List<Orders> orders = new ArrayList<>();
 
 	public User() {
 	}
@@ -89,21 +101,4 @@ public class User {
 	public String toString() {
 		return "{id: " + this.id + ", lastname:" + this.lastname + ", firstname:" + this.firstname + ", adress:" + this.adress + ", phone:" + this.phone + ", mail:" + this.mail + ", birthdate:" + this.birthdate + "}";
 	}
-
-	public Long getId() {return id;}
-	public void setId(Long id) {this.id = id;}
-	public String getLastname() {return lastname;}
-	public void setLastname(String lastname) {this.lastname = lastname;}
-	public String getFirstname() {return firstname;}
-	public void setFirstname(String firstname) {this.firstname = firstname;}
-	public String getAdress() {return adress;}
-	public void setAdress(String adress) {this.adress = adress;}
-	public String getPhone() {return phone;}
-	public void setPhone(String phone) {this.phone = phone;}
-	public String getMail() {return mail;}
-	public void setMail(String mail) {this.mail = mail;}
-	public Date getBirthdate() {return birthdate;}
-	public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}
-	public String getPassword() {return password;}
-	public void setPassword(String password) {this.password = password;}
 }
