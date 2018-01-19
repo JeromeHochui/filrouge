@@ -1,5 +1,6 @@
 package fr.dta.filrouge.orders.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,15 +19,16 @@ import javax.persistence.Transient;
 
 import fr.dta.filrouge.OrderProduct.OrderProduct;
 import fr.dta.filrouge.user.entity.User;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+
+
 @Entity
 @Table(name = "orders")
 @SequenceGenerator(name = "item_id_seq", sequenceName = "item_id_seq", initialValue = 0, allocationSize = 1)
-public class Orders {
+public class Orders implements Serializable {
+	@Transient
+	private static final long serialVersionUID = -7957115776241044533L;
+
 	@Id
 	@GeneratedValue(generator = "item_id_seq")
 	@Column(name = "id")
@@ -74,4 +76,20 @@ public class Orders {
 			return false;
 		return true;
 	}
+	
+	// Getters and Setters
+
+	public Long getId() {return id;}
+	public void setId(Long id) {this.id = id;}
+	public String getReference() {return reference;}
+	public void setReference(String reference) {this.reference = reference;}
+	public Float getTotal() {return total;}
+	public void setTotal(Float total) {this.total = total;}
+	public Date getCommandDate() {return commandDate;}
+	public void setCommandDate(Date commandDate) {this.commandDate = commandDate;}
+	public User getUsers() {return users;}
+	public void setUsers(User users) {this.users = users;}
+	public List<OrderProduct> getQuantities() {return quantities;}
+	public void setQuantities(List<OrderProduct> quantities) {this.quantities = quantities;}
+	public static long getSerialversionuid() {return serialVersionUID;}	
 }
