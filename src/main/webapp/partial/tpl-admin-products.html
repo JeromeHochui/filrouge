@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href ="css/style.css" >
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  		
+	<meta charset="UTF-8">
+	</head>
+	<title>Administration - Gestion des produits</title>
+	<div class="menu">
+		<div class="container-fluid">
+		<nav class="menu navbar navbar-dark">					
+				<div class="navbar-header menu col-lg-2">
+					<a id="textMenu" href="#">Nomdusite</a>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" class="form-control " id="searching" placeholder="Votre recherche">
+				</div>
+				<div class="col-lg-1">				
+					 <ul class="nav nav-pills nav-stacked">
+					    <li class="dropdown">
+					      <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropDownMenu">Mon compte <span class="caret"></span></a>
+					      <ul class="dropdown-menu">
+					      	 <ul class="nav navbar-nav">
+      							<li class="active"><a href="#">Mes commandes</a></li>
+    						 	<li><a href="#">Mes commandes</a></li>
+      							<li><a href="#">Deconnexion</a></li>      
+   							 </ul>					       
+					    </li>   
+  					</ul>
+				</div>
+				<div class="col-lg-1">				
+					<a id="textMenu" class="glyphicon glyphicon-shopping-cart btn-lg" href="#"></a>				
+				</div>			
+			</nav>
+		</div>
+	</div>
+	
+	<div class="container">		
+		<div class="row">		
+			<ul class="nav nav-tabs nav-justified" >
+			  <li ><a href="#">Blonde</a></li>
+			  <li><a href="#">Brunes</a></li>
+			  <li><a href="#">Ambrées</a></li>
+			  <li><a href="#">Blanches</a></li>
+			</ul>
+		</div>
+	</div> 
+	
+	<div class="container">		
+		<div class="row">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-6">	
+			<h1>Espace administrateur</h1>			
+			<hr/>
+		</div>
+		
+		</div>
+	</div>		
+		
+	
+	
+	<body>
+	<div class="container">		
+			<div class="row">
+				<div class="col-lg-4 active">
+					<a href="#">Gérer les produits</a>
+				</div>
+				<div class="col-lg-4">
+					<a href="#">Créer un produit</a>
+				</div>
+				<div class="col-lg-4">
+					<a href="#">Liste des commandes</a>
+				</div>				
+ 			</div>
+ 			<hr/>
+ 			<label>Recherche dans les produits: </label>
+ 			<input type="text" class="form-control " id="searching" placeholder="Votre recherche">
+ 			<hr/>
+ 			
+ 			<div class="row">
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 row">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6">
+					<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"> Désactiver</a>
+						<a class="col-lg-12" href="#"><p> Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>
+					</div>
+					
+				</div>
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 ">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6 row">						
+						<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>										
+					</div>
+				</div>
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 ">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6 row">
+						<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>
+					</div>
+				
+				</div>
+				
+ 			</div>
+ 			<hr/>
+ 			
+ 			<div class="row">
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 row">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6">
+					<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>
+					</div>
+					
+				</div>
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 ">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6 row">						
+						<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>										
+					</div>
+				</div>
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 ">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6 row">
+						<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>
+					</div>
+				
+				</div>
+				
+ 			</div>
+ 			<hr/>
+ 			
+ 			<div class="row">
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 row">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6">
+					<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>
+					</div>
+					
+				</div>
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 ">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6 row">						
+						<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>										
+					</div>
+				</div>
+				<div class="col-lg-4 row">
+					<div class="col-lg-6 ">				
+						<img alt="bière" class=img-responsive src="images/biere1.jpg">
+					</div>
+					<div class="col-lg-6 row">
+						<a class="col-lg-12" href="#"><h3>Bière leffe</h3></a>						
+						<a class="col-lg-12" href="#"><p>Désactiver</p></a>
+						<a class="col-lg-12" href="#"><p>Modifier</p></a>
+						<p class="danger" id="redDanger">PRIX: 0 euros</p>
+						<p class="danger" id="green">Stock: 0 </p>
+					</div>
+				
+				</div>
+				
+ 			</div>
+  </div>
+	</body>
+</html>
