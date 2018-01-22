@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Visiteur - Création compte client</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href ="css/style.css" >
+		<link rel="stylesheet" href ="../css/style.css" >
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
 </head>
@@ -52,51 +52,39 @@
 		</div>
 	</div>
 	
+	<div class="container">
+	<h1>Créer un compte client</h1>
 	<form>		  
-		  <div class="form-group">
-		    <label for="inputMark">Type de bière: </label>
-		    	<select class="form-control form-control-sm">
- 			 		<option>Blonde</option>
- 			 		<option>Brune</option>
- 			 		<option>Ambrées</option>
- 			 		<option>Blanche</option>
-				</select>
-				
-			 <label for="inputMark">Type de contenant: </label>
-		    	<select class="form-control form-control-sm">
- 			 		<option>Bouteille</option>
- 			 		<option>Canette</option>
- 			 		<option>Fût</option> 			 		
-				</select>		     
-		  
-		    <label for="inputName">Nom de la bière: </label>
-		    <input type="text" class="form-control" placeholder="Nom de la bière">
-<!-- 		    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-		  </div>
-		  
-		    <label for="inputMark">Marque de la bière: </label>
-		    <input type="text" class="form-control" placeholder="Marque de la bière">
+		    <label for="nom">Nom: </label>
+		    <input type="text" id="nom" class="form-control" placeholder="Nom">
 		    
-		    <label for="inputMark">Référence: </label>
-		    <input type="text" class="form-control" placeholder="Référence de la bière">
+		    <label for="prenom">Prénom: </label>
+		    <input type="text" id="prenom" class="form-control" placeholder="Prénom">
 		    
-		    <label for="inputMark">Volume: </label>
-		    <input type="number" step="any" class="form-control" placeholder="Volume">
+		    <label for="email">E-mail (pour se connecter): </label>
+		    <input type="email" id="email" class="form-control" placeholder="E-mail">
 		    
-		    <label for="inputMark">Poids: </label>
-		    <input type="number" step="any" class="form-control" placeholder="Poids de la bière">
+		    <label for="password">Mot de passe: </label>
+		    <input type="password" id="password" class="form-control" placeholder="Mot de passe">
 		    
-		    <label for="inputMark">Taux d'alcool: </label>
-		    <small id="emailHelp" class="form-text text-muted">En pourcentage.</small>
-		    <input type="number" step="any" class="form-control" placeholder="Taux d'alcool">		    
+		    <label for="passwordRepaet">Mot de passe à nouveau: </label>
+		    <input type="password" id="passwordRepaet" class="form-control" placeholder="Mot de passe">
 		    
-		    <label for="inputMark">Description: </label>
-		    <input type="text" class="form-control" placeholder="Description">
-		    	  	  
+		    <label for="adresse">Adresse: </label>
+		    <input type="text" id="adresse" class="form-control" placeholder="Adresse">	
+		    
+		    <label for="codePostal">Code Postal: </label>
+		    <input type="text" id="codePostal" class="form-control" placeholder="Code Postal">
+		    
+		    <label for="telephone">Téléphone: </label>
+		    <input type="text" id="telephone" class="form-control" placeholder="Téléphone">	 
+		    
+		    <label for="dateNaissance">Date de naissance: </label>
+		    <input type="date" id="dateNaissance" class="form-control" placeholder="Date de naissance">
 		 
 		  <button type="submit" class="btn btn-primary">Valider</button>
-		  </div>
 		</form>
+	</div>
 
 </body>
 </html>
