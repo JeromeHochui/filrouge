@@ -3,7 +3,7 @@ package fr.dta.filrouge.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +17,7 @@ import fr.dta.filrouge.exceptions.NotFoundException;
 
 @RestController
 @RequestMapping(value = "/api/users")
+@Transactional
 public class UserController {
 	@Autowired
 	private UserService service;
@@ -40,7 +41,6 @@ public class UserController {
 	@CrossOrigin
 	@RequestMapping(path = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	@PreAuthorize("hasAuthority('CUSTOMER')")
 	public Long create(@RequestBody User user) {
 		
 		System.out.println("test create");
@@ -52,4 +52,5 @@ public class UserController {
 			return -1L;
 		}
 	}
+	
 }
