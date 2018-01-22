@@ -122,8 +122,10 @@ public class User implements Serializable{
 	public void setPhone(String phone) {this.phone = phone;}
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
+
 	public boolean isAdmin() {return isAdmin;}
 	public void setAdmin(boolean admin) {this.isAdmin = admin;}
+
 	public Date getBirthdate() {return birthdate;}
 	public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}
 	public String getPassword() {return password;}
