@@ -2,15 +2,14 @@ package fr.dta.filrouge.user;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional
 public class UserService {
 	@Autowired
 	private UserRepository repository;
@@ -21,7 +20,9 @@ public class UserService {
 	
 	
 	public User getById(Long id) {
-		return repository.findById(id);
+		User u = repository.findById(id);
+		Hibernate.initialize(u.getOrders());
+		return u;
 	}
 	
 	public List<User> getAll() {
@@ -46,5 +47,10 @@ public class UserService {
 		return this.getById(id) != null;
 	}
 	
+	public User getByEmail(String email) {
+		User u = repository.findByEmail(email);
+		Hibernate.initialize(u.getOrders());
+		return u;
+	}
 	
 }

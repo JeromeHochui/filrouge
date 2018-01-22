@@ -19,6 +19,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.dta.filrouge.orders.Orders;
 
 
@@ -67,6 +69,7 @@ public class User implements Serializable{
 	private String password;
 	
 	@OneToMany(mappedBy="users")
+	@JsonIgnore
 	private List<Orders> orders = new ArrayList<>();
 
 	public User() {
@@ -122,8 +125,10 @@ public class User implements Serializable{
 	public void setPhone(String phone) {this.phone = phone;}
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
+
 	public boolean isAdmin() {return isAdmin;}
 	public void setAdmin(boolean admin) {this.isAdmin = admin;}
+
 	public Date getBirthdate() {return birthdate;}
 	public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}
 	public String getPassword() {return password;}

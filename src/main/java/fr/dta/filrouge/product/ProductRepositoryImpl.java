@@ -14,8 +14,6 @@ public class ProductRepositoryImpl extends AbstractJpaRepository<Product> implem
 		return Product.class;
 	}
 	
-
-
 	@Override
 	public List<Product> findByCriteria(String name, Long id, Type type) {
 		Criteria query = getSession().createCriteria(getEntityClass());
