@@ -1,4 +1,4 @@
-package fr.dta.filrouge.orders.entity;
+package fr.dta.filrouge.orders;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,8 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import fr.dta.filrouge.OrderProduct.OrderProduct;
-import fr.dta.filrouge.user.entity.User;
+import fr.dta.filrouge.orderproduct.OrderProduct;
+import fr.dta.filrouge.user.User;
 
 
 

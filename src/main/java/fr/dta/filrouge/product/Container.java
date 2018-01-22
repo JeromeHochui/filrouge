@@ -1,4 +1,4 @@
-package fr.dta.filrouge.product.entity;
+package fr.dta.filrouge.product;
 
 public enum Container {
 	Bottle,

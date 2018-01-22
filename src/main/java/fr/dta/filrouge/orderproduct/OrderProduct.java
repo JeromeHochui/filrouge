@@ -1,4 +1,4 @@
-package fr.dta.filrouge.OrderProduct;
+package fr.dta.filrouge.orderproduct;
 
 import java.io.Serializable;
 
@@ -11,8 +11,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import fr.dta.filrouge.orders.entity.Orders;
-import fr.dta.filrouge.product.entity.Product;
+import fr.dta.filrouge.orders.Orders;
+import fr.dta.filrouge.product.Product;
 
 
 

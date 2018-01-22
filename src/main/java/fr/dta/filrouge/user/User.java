@@ -1,4 +1,4 @@
-package fr.dta.filrouge.user.entity;
+package fr.dta.filrouge.user;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import fr.dta.filrouge.orders.entity.Orders;
+import fr.dta.filrouge.orders.Orders;
 
 
 @Entity
