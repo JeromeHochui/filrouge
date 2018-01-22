@@ -1,4 +1,4 @@
-package fr.dta.filrouge.product.entity;
+package fr.dta.filrouge.product;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import fr.dta.filrouge.OrderProduct.OrderProduct;
+import fr.dta.filrouge.orderproduct.OrderProduct;
 
 
 @Entity

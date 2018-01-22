@@ -1,4 +1,4 @@
-package fr.dta.filrouge.user.entity;
+package fr.dta.filrouge.user;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import fr.dta.filrouge.orders.entity.Orders;
+import fr.dta.filrouge.orders.Orders;
 
 
 @Entity
@@ -49,9 +49,13 @@ public class User implements Serializable{
 	@Column(name = "phone")
 	private String phone;
 
-	@Column(name = "email")
+	@Column(name = "email", unique=true)
 	@NotBlank
 	private String email;
+	
+	@Column(name = "is_admin")
+	@NotNull
+	private boolean isAdmin;
 
 	@Column(name = "birthdate")
 	@Temporal(TemporalType.DATE)
@@ -118,6 +122,10 @@ public class User implements Serializable{
 	public void setPhone(String phone) {this.phone = phone;}
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
+
+	public boolean isAdmin() {return isAdmin;}
+	public void setAdmin(boolean admin) {this.isAdmin = admin;}
+
 	public Date getBirthdate() {return birthdate;}
 	public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}
 	public String getPassword() {return password;}

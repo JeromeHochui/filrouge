@@ -1,4 +1,4 @@
-package fr.dta.filrouge.user.repository;
+package fr.dta.filrouge.user;
 
 import java.util.List;
 
@@ -9,12 +9,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
-import fr.dta.filrouge.user.entity.User;
-
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	
 	// All findBy methods
 	List<User> findById(@Param("id") String id);
 	
@@ -25,8 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@RestResource(path="findByFirstName", rel="findByFirstName")
 	@Query("select u from User u where u.firstname = :firstname")
 	List<User> findByFirstName(@Param("firstname") String firstname);
-	
-	List<User> findByEmail(@Param("email") String email);
 	
 	@RestResource(path="findByFirstNameAndLastName", rel="findByFirstNameAndLastName")
 	@Query("select u from User u where u.firstname = :firstname and u.lastname = :lastname")
@@ -41,5 +36,9 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	List<User> findByPhone(@Param("phone") String phone);
 	
 	//All modify methods
+	User findByEmail(String username);
+	
+	User findById(Long id);
+
 	
 }
