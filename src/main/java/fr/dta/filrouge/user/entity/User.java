@@ -49,9 +49,9 @@ public class User implements Serializable{
 	@Column(name = "phone")
 	private String phone;
 
-	@Column(name = "mail")
+	@Column(name = "email")
 	@NotBlank
-	private String mail;
+	private String email;
 
 	@Column(name = "birthdate")
 	@Temporal(TemporalType.DATE)
@@ -68,12 +68,12 @@ public class User implements Serializable{
 	public User() {
 	}
 
-	public User(String lastname, String firstname, String adress, String phone, String mail, Date birthdate, String password) {
+	public User(String lastname, String firstname, String adress, String phone, String email, Date birthdate, String password) {
 		this.lastname = lastname;
 		this.firstname = firstname;
 		this.adress = adress;
 		this.phone = phone;
-		this.mail = mail;
+		this.email = email;
 		this.birthdate = birthdate;
 		this.password = password;
 	}
@@ -101,7 +101,7 @@ public class User implements Serializable{
 	}
 	
 	public String toString() {
-		return "{id: " + this.id + ", lastname:" + this.lastname + ", firstname:" + this.firstname + ", adress:" + this.adress + ", phone:" + this.phone + ", mail:" + this.mail + ", birthdate:" + this.birthdate + "}";
+		return "{id: " + this.id + ", lastname:" + this.lastname + ", firstname:" + this.firstname + ", adress:" + this.adress + ", phone:" + this.phone + ", mail:" + this.email + ", birthdate:" + this.birthdate + "}";
 	}
 	
 	// Getters and Setters
@@ -116,8 +116,8 @@ public class User implements Serializable{
 	public void setAdress(String adress) {this.adress = adress;}
 	public String getPhone() {return phone;}
 	public void setPhone(String phone) {this.phone = phone;}
-	public String getMail() {return mail;}
-	public void setMail(String mail) {this.mail = mail;}
+	public String getEmail() {return email;}
+	public void setEmail(String email) {this.email = email;}
 	public Date getBirthdate() {return birthdate;}
 	public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}
 	public String getPassword() {return password;}
