@@ -83,8 +83,8 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
 		</dependency>
-	</dependencies>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -93,6 +93,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

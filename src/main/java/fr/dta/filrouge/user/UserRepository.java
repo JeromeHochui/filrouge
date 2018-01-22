@@ -35,7 +35,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@Query("select u from User u where u.phone = :phone")
 	List<User> findByPhone(@Param("phone") String phone);
 	
-	//All modify methods
 	User findByEmail(String username);
 	
 	User findById(Long id);

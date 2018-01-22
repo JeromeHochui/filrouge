@@ -19,7 +19,6 @@ public class UserService {
 	
 	public UserService() {}
 	
-	
 	public User getById(Long id) {
 		return repository.findById(id);
 	}
@@ -45,6 +44,4 @@ public class UserService {
 	public boolean contains(Long id) {
 		return this.getById(id) != null;
 	}
-	
-	
 }
