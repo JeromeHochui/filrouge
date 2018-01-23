@@ -38,6 +38,11 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 	
+	public void desactivateActivate(Product product) {	
+		product.setActive(!product.getActive());
+		repository.saveAndFlush(product);
+	}
+	
 	public void store(MultipartFile file) {
 		// TODO Auto-generated method stub
 	}
