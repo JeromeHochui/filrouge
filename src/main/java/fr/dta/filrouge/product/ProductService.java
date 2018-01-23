@@ -34,6 +34,10 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 	
+	public void update(Product product) {
+		repository.saveAndFlush(product);
+	}
+	
 	public void store(MultipartFile file) {
 		// TODO Auto-generated method stub
 	}
