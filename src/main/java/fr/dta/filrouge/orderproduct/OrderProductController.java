@@ -1,4 +1,6 @@
-package fr.dta.filrouge.user;
+package fr.dta.filrouge.orderproduct;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,68 +14,44 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.dta.filrouge.exceptions.NotFoundException;
-
-
 @RestController
-@RequestMapping(value = "/api/users")
+@RequestMapping(value = "/api/order-product")
 @Transactional
-public class UserController {
+public class OrderProductController {
 	@Autowired
-	private UserService service;
+	private OrderProductService service;
 	
 	
-	
-	// example user 
-	/*
-{"adress":"XXX",
- "birthdate":NNN,
- "firstname":"XXX",
- "lastname":"XXX",
- "password":"XXX",
- "phone":NNN,
- "email":"XXX@XXX.XXX",
- "isAdmin":false }
-	 */
+	public List<OrderProduct> get () {
+		return null;
+	}
 	
 	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public User get(@PathVariable Long id) {
-		User user = service.getById(id);
-		
-		if(user == null) {
-			throw new NotFoundException();
-		}else {
-			return user;
-		}
-		
+	public OrderProduct getOne (@PathVariable Long id) {
+		return null;
 	}
 	
 	@CrossOrigin
 	@RequestMapping(path = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public Long create(@RequestBody User user) {
-		service.create(user);
+	public void create (@RequestBody OrderProduct orderProduct) {
 		
-		if (user != null && user.getId() >= 0) {
-			return user.getId();
-		} else {
-			return -1L;
-		}
 	}
 	
 	@CrossOrigin
 	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public User update(@RequestBody User user) {
-		service.update(user);
-		return user;
+	public void update (@RequestBody OrderProduct orderProduct) {
+		
 	}
 	
 	@CrossOrigin
 	@RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public void delete(@PathVariable Long id) {
-		service.delete(id);
+	public void delete (@PathVariable Long id) {
+		
 	}
+	
+	
 }
