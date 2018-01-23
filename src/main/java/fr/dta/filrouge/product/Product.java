@@ -38,8 +38,7 @@ public class Product implements Serializable {
 	@NotBlank
 	private String productName;
 	
-	@Column
-	@NotBlank
+	@Column	
 	@Enumerated(EnumType.STRING)
 	private Type type;
 	
@@ -70,9 +69,7 @@ public class Product implements Serializable {
 	private Boolean active;	
 	
 	@Column(name = "description")
-	private String description;
-	
-	
+	private String description;	
 
 	public Product() {}
 	
