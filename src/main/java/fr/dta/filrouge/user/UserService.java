@@ -18,7 +18,6 @@ public class UserService {
 	
 	public UserService() {}
 	
-	
 	public User getById(Long id) {
 		User u = repository.findById(id);
 		Hibernate.initialize(u.getOrders());

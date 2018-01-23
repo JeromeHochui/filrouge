@@ -3,6 +3,6 @@
  */
 
 angular.module('app').component('myNav', {
-	templateUrl:	'partial/tpl-nav.html',
+	templateUrl:	'./partial/tpl-nav.html',
 	bindings:		{}
 });
