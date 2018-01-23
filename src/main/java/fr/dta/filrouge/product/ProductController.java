@@ -60,7 +60,7 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "update", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public Product update (@RequestBody Product product) {
 		service.update(product);		
@@ -68,14 +68,14 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "delete", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "delete", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void delete (@RequestBody Product product) {
+	public void delete (@RequestBody Product product) {	
 		
 		
 		
-		
-	}
+	}	
+	
 	
 	 @PostMapping("/upload/{id}")
 	    public String handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable Long id,
