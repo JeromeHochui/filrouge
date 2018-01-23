@@ -69,7 +69,10 @@ public class Product implements Serializable {
 	private Boolean active;	
 	
 	@Column(name = "description")
-	private String description;	
+	private String description;
+	
+	@Column(name = "path_picture")
+	private String path_picture;
 
 	public Product() {}
 	

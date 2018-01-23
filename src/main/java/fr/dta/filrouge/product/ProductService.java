@@ -44,7 +44,7 @@ public class ProductService {
 	}
 	
 	public void store(MultipartFile file) {
-		// TODO Auto-generated method stub
+		
 	}
 }
 
