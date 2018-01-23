@@ -46,7 +46,7 @@ public class UserController {
 		System.out.println("test create");
 		service.create(user);
 		
-		if (user != null && user.getId() > 0) {
+		if (user != null && user.getId() >= 0) {
 			return user.getId();
 		} else {
 			return -1L;

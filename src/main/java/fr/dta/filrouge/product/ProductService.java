@@ -2,21 +2,34 @@ package fr.dta.filrouge.product;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
 public class ProductService {
 	
 	@Autowired
-	private ProductRepositoryImpl repository;
+	private ProductRepository repository;
+	
+	@Autowired
+	private ProductRepositoryImpl repositoryCustom;
 	
 	public ProductService() {
 	}
 	
 	public List<Product> getByCriteria(String name, Long id, Type type) {
-		return repository.findByCriteria(name, id, type);
+		return repositoryCustom.findByCriteria(name, id, type);
+	}
+	
+	public Product getById(Long id) {
+		Product p = repository.findById(id);
+		Hibernate.initialize(p.getQuantities());
+		return p;
+	}
+	
+	public void create(Product product) {
+		repository.saveAndFlush(product);
 	}
 }

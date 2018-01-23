@@ -19,7 +19,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	
 	@RestResource(path="findByName", rel="findByName")
 	@Query("select p from Product p where p.productName = :productName")
-	List<Product> findByName(@Param("productName") String productName);
+	List<Product> findByProductName(@Param("productName") String productName);
 	
 	@RestResource(path="findByType", rel="findByType")
 	@Query("select p from Product p where p.type = :type")
@@ -28,4 +28,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	@RestResource(path="findByPrice", rel="findByPrice")
 	@Query("select p from Product p where p.price = :prix")
 	List<Product> findByPrice(@Param("prix") String prix);
+	
+	Product findById (Long id);
 }

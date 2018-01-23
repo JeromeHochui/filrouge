@@ -17,6 +17,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.dta.filrouge.orderproduct.OrderProduct;
 
 
@@ -61,6 +63,7 @@ public class Product implements Serializable {
 	private Container container;
 	
 	@OneToMany(mappedBy = "products")
+	@JsonIgnore
 	private List<OrderProduct> quantities = new ArrayList<>();
 	
 	public Product() {}
