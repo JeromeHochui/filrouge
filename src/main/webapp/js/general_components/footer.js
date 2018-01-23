@@ -3,6 +3,6 @@
  */
 
 angular.module('app').component('myFooter', {
-	templateUrl:	'partial/tpl-footer.html',
+	templateUrl:	'./partial/tpl-footer.html',
 	bindings:		{}
 });
