@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import fr.dta.filrouge.orderproduct.OrderProduct;
 import fr.dta.filrouge.user.User;
@@ -46,14 +47,13 @@ public class Orders implements Serializable {
 	private Date commandDate;
 	
 	@ManyToOne()
+	@NotNull
 	private User users;
 	
 	@OneToMany(mappedBy = "orders")
 	private List<OrderProduct> quantities = new ArrayList<>();
 	
-	public Orders() {
-		
-	}
+	public Orders() {}
 	
 	@Override
 	public int hashCode() {

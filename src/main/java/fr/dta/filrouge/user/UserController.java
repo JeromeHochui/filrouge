@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.dta.filrouge.exceptions.NotFoundException;
+import fr.dta.filrouge.security.SecurityService;
 
 
 @RestController
@@ -21,10 +22,21 @@ import fr.dta.filrouge.exceptions.NotFoundException;
 public class UserController {
 	@Autowired
 	private UserService service;
+	@Autowired
+	private SecurityService secuService;
 	
+	// example user 
+	/*
+{"adress":"XXX",
+ "birthdate":NNN,
+ "firstname":"XXX",
+ "lastname":"XXX",
+ "password":"XXX",
+ "phone":NNN,
+ "email":"XXX@XXX.XXX",
+ "isAdmin":false }
+	 */
 	
-	
-	// example user {"id":0,"adress":"test adress","birthdate":1513334634449,"firstname":"Guillaume","lastname":"Allemand","password":"mdp123","phone":1051068051,"email":"uqt@sughj.zis","is_admin":true }
 	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public User get(@PathVariable Long id) {
@@ -35,15 +47,18 @@ public class UserController {
 		}else {
 			return user;
 		}
-		
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "connected-user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public User getConnectedUser() {
+		return secuService.getConnectedUser();
 	}
 	
 	@CrossOrigin
 	@RequestMapping(path = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public Long create(@RequestBody User user) {
-		
-		System.out.println("test create");
 		service.create(user);
 		
 		if (user != null && user.getId() >= 0) {
@@ -53,4 +68,18 @@ public class UserController {
 		}
 	}
 	
+	@CrossOrigin
+	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public User update(@RequestBody User user) {
+		service.update(user);
+		return user;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void delete(@PathVariable Long id) {
+		service.delete(id);
+	}
 }
