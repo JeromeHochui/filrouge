@@ -43,8 +43,9 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 	
-	public void store(MultipartFile file) {
-		
+	public void store(MultipartFile file, Product product) {
+		product.setPathpicture(file.getOriginalFilename());
+		repository.saveAndFlush(product);
 	}
 }
 

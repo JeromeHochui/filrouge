@@ -114,7 +114,7 @@ public class Product implements Serializable {
 	public static long getSerialversionuid() {return serialVersionUID;}
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
-	public String getPath_picture() {return path_picture;}
-	public void setPath_picture(String path_picture) {this.path_picture = path_picture;}
+	public String getPathpicture() {return path_picture;}
+	public void setPathpicture(String path_picture) {this.path_picture = path_picture;}
 
 }

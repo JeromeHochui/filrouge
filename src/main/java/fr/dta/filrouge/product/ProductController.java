@@ -76,11 +76,13 @@ public class ProductController {
 		return product;		
 	}
 	
+	@CrossOrigin
 	@RequestMapping(path = "upload/{id}", method = RequestMethod.POST)
-	    public String handleFileUpload(@RequestParam(value ="file") MultipartFile file, @PathVariable Long id, 
+	@ResponseStatus(value = HttpStatus.OK)
+	    public String handleFileUpload(@RequestBody Product product, @RequestParam(value ="file") MultipartFile file, @PathVariable Long id, 
 	            RedirectAttributes redirectAttributes) {
 
-	    	service.store(file);
+	    	service.store(file, product);
 	        redirectAttributes.addFlashAttribute("message",
 	                "Le fichier a bien été envoyé " + file.getOriginalFilename() + "!");
 
