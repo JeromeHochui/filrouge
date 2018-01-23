@@ -56,6 +56,10 @@ footer{
 	color: white;
 }
 
+footer .copiright {
+	text-align: right;
+}
+
 .background-title{
 	background-color: #493f56;
 	color: white;
