@@ -1,6 +1,7 @@
 /**
  * 
  */
-angular.module('users').controller('UsersConnectionCtrl', function($scope){
-	
-});
+angular.module('users').controller('UsersConnectionCtrl',
+		['$scope', '$rootscope', 'titre', function($scope, $rootscope, titre){
+	$rootscope.titre = titre.libelle;
+}]);

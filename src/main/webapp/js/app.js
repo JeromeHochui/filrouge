@@ -7,15 +7,15 @@ angular.module('app', ['ngRoute', 'users', 'products', 'orders']);
 
 
 angular.module('app').config(function($routeProvider){
-	$routeProvider.when('/connexion', {	// Route pour la page de connexion
+	$routeProvider.when('/connection', {	// Route pour la page de connexion
 		templateUrl : './partial/tpl-connexion.html',	// Template
-		controller : 'UsersConnexionCtrl',	// Controller
+		controller : 'UsersConnectionCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Connexion'}} // Titre de la page
 		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
-		redirectTo : '/connexion'
+		redirectTo : '/connection'
 	});
 });
 /*
