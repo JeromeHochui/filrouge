@@ -37,9 +37,7 @@ public class OrderProduct implements Serializable {
 	@ManyToOne
 	private Product products;
 	
-	public OrderProduct() {
-		
-	}
+	public OrderProduct() {}
 	
 	
 	// Getters and Setters
