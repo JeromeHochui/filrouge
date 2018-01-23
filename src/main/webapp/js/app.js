@@ -13,6 +13,18 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Connexion'}} // Titre de la page
 		}
+	}).when('/catalogue', {	// Route pour la page de catalogue
+		templateUrl : './partial/tpl-catalogue.html',	// Template
+		controller : 'listProductController',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Catalogue'}} // Titre de la page
+		}
+	}).when('/catalogue/:id', {	// Route pour la page de detail d'un produit
+		templateUrl : './partial/tpl-details-product.html',	// Template
+		controller : 'productController',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Produit'}} // Titre de la page
+		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
 		redirectTo : '/connection'
