@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.dta.filrouge.exceptions.NotFoundException;
+import fr.dta.filrouge.security.SecurityService;
 
 
 @RestController
@@ -21,8 +22,8 @@ import fr.dta.filrouge.exceptions.NotFoundException;
 public class UserController {
 	@Autowired
 	private UserService service;
-	
-	
+	@Autowired
+	private SecurityService secuService;
 	
 	// example user 
 	/*
@@ -46,7 +47,12 @@ public class UserController {
 		}else {
 			return user;
 		}
-		
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "connected-user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public User getConnectedUser() {
+		return secuService.getConnectedUser();
 	}
 	
 	@CrossOrigin

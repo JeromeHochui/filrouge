@@ -53,10 +53,12 @@ public class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter
 		.and().httpBasic().and().csrf().disable();
        
     }
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(authentificationService).passwordEncoder(passwordEncoder());
