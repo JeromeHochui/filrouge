@@ -30,4 +30,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> findByPrice(@Param("prix") String prix);
 	
 	Product findById (Long id);
+	
+	
 }

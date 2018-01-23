@@ -1,4 +1,7 @@
+
 package fr.dta.filrouge.product;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -6,13 +9,16 @@ import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
 import fr.dta.filrouge.exceptions.NotFoundException;
 
 @RestController
@@ -54,22 +60,32 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "update", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public Product update (@RequestBody Product product) {
-		
-		
-		
-		return null;
+		service.update(product);		
+		return product;
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "delete", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "delete", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void delete (@RequestBody Product product) {
+	public void delete (@RequestBody Product product) {	
 		
 		
 		
-		
-	}
+	}	
+	
+	
+	 @PostMapping("/upload/{id}")
+	    public String handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable Long id,
+	            RedirectAttributes redirectAttributes) {
+
+	    	service.store(file);
+	        redirectAttributes.addFlashAttribute("message",
+	                "You successfully uploaded " + file.getOriginalFilename() + "!");
+
+	        return "redirect:/";
+	    }
 }
+
