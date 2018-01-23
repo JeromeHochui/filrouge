@@ -66,14 +66,20 @@ public class Product implements Serializable {
 	@JsonIgnore
 	private List<OrderProduct> quantities = new ArrayList<>();
 	
+	@Column(name = "active")
+	private Boolean active;
+	
+	
+
 	public Product() {}
 	
-	public Product (String productName, Float price, Integer clVolume, Integer gWeight, Float alcoholPercentage, String container) {
+	public Product (String productName, Float price, Integer clVolume, Integer gWeight, Float alcoholPercentage, String container, Boolean active) {
 		this.productName = productName;
 		this.price = price;
 		this.clVolume = clVolume;
 		this.gWeight = gWeight;
 		this.alcoholPercentage = alcoholPercentage;
+		this.active=active;
 	}
 	
 	// Getters and Setters
@@ -98,5 +104,7 @@ public class Product implements Serializable {
 	public void setContainer(Container container) {this.container = container;}
 	public List<OrderProduct> getQuantities() {return quantities;}
 	public void setQuantities(List<OrderProduct> quantities) {this.quantities = quantities;}
+	public Boolean getActive() {return active;}
+	public void setActive(Boolean active) {	this.active = active;}
 	public static long getSerialversionuid() {return serialVersionUID;}
 }
