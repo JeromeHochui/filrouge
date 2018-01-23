@@ -15,29 +15,20 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	// All findBy methods
 	List<User> findById(@Param("id") String id);
 	
-	@RestResource(path="findByLastName", rel="findByLastName")
-	@Query("select u from User u where u.lastname = :lastname")
-	List<User> findByLastName(@Param("lastname") String lastname);
+	List<User> findByLastname(String lastname);
 	
-	@RestResource(path="findByFirstName", rel="findByFirstName")
-	@Query("select u from User u where u.firstname = :firstname")
-	List<User> findByFirstName(@Param("firstname") String firstname);
+	List<User> findByFirstname(String firstname);
 	
 	@RestResource(path="findByFirstNameAndLastName", rel="findByFirstNameAndLastName")
 	@Query("select u from User u where u.firstname = :firstname and u.lastname = :lastname")
 	List<User> findByFirstnameAndLastname(@Param("firstname") String firstname, @Param("lastname") String lastname);
 	
 	@RestResource(path="findByAdress", rel="findByAdress")
-	@Query("select u from User u where u.adress = :adress")
-	List<User> findByAdress(@Param("adress") String adress);
+	List<User> findByAdress(String adress);
 	
-	@RestResource(path="findByPhone", rel="findByPhone")
-	@Query("select u from User u where u.phone = :phone")
-	List<User> findByPhone(@Param("phone") String phone);
+	List<User> findByPhone(String phone);
 	
 	User findByEmail(String username);
 	
 	User findById(Long id);
-
-	
 }
