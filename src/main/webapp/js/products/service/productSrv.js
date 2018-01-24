@@ -1,4 +1,4 @@
-angular.module('products').service("ProductService", ['$http', function($http){
+angular.module('products').service("productSrv", ['$http', function($http){
 	
 	var p = $http.get('/api/product/search')
 	
