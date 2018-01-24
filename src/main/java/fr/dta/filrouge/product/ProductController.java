@@ -30,10 +30,10 @@ public class ProductController {
 	@CrossOrigin
 	@RequestMapping(value = "search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> get(@RequestParam(value="id", required=false) Long id,
-							@RequestParam(value="product_name", required=false) String name, 
+							@RequestParam(value="productName", required=false) String productName, 
 							@RequestParam(value="type",required=false) Type type) {
 		
-		List<Product> product = service.getByCriteria(name, id, type);
+		List<Product> product = service.getByCriteria(productName, id, type);
 		
 		if(product == null) {
 			throw new NotFoundException();
@@ -83,8 +83,8 @@ public class ProductController {
 
 	    	service.store(file, product);
 	        redirectAttributes.addFlashAttribute("message",
-	                "Le fichier a bien été envoyé " + file.getOriginalFilename() + "!");
+	                "Le fichier  " + file.getOriginalFilename() + "a bien été envoyé !");
 
-	        return "Le fichier a bien été envoyé. redirect:/";
+	        return "redirect:/";
 	    }
 }

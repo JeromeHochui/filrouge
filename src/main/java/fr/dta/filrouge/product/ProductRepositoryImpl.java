@@ -15,10 +15,10 @@ public class ProductRepositoryImpl extends AbstractJpaRepository<Product> implem
 	}
 	
 	@Override
-	public List<Product> findByCriteria(String name, Long id, Type type) {
+	public List<Product> findByCriteria(String productName, Long id, Type type) {
 		Criteria query = getSession().createCriteria(getEntityClass());
-		if(!StringUtils.isEmpty(name)) {
-			query.add(Restrictions.like("name", "%"+name+"%"));
+		if(!StringUtils.isEmpty(productName)) {
+			query.add(Restrictions.like("productName", "%"+productName+"%"));
 		}
 		
 		if(id != null) {

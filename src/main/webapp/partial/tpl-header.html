@@ -3,11 +3,9 @@
 		<a id="textMenu" href="#">Nomdusite</a>
 	</div>
 	<div class="col-lg-8">
-		<div class="input-group" action="#!/search/kr">
-			<input type="text" class="form-control"> 
-			<span class="input-group-btn">
-			<button ng-click="searchByName(kro)"  class="btn btn-default glyphicon glyphicon-search" type="button"></button>
-			</span>
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="name"> <span
+				class="input-group-btn"><a href="#!/search/{{name}}" class="btn btn-default glyphicon glyphicon-search" ></a></span>
 		</div>
 	</div>
 	<div class="col-lg-1">
@@ -19,7 +17,9 @@
 						<li class="active"><a href="#">Mes commandes</a></li>
 						<li><a href="#">Mes commandes</a></li>
 						<li><a href="#">Deconnexion</a></li>
-					</ul></li>
+					</ul>
+				</ul>
+			</li>
 		</ul>
 	</div>
 	<div class="col-lg-1">

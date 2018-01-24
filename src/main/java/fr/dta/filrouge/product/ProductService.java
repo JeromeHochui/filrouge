@@ -20,8 +20,8 @@ public class ProductService {
 	public ProductService() {
 	}
 	
-	public List<Product> getByCriteria(String name, Long id, Type type) {
-		return repositoryCustom.findByCriteria(name, id, type);
+	public List<Product> getByCriteria(String productName, Long id, Type type) {
+		return repositoryCustom.findByCriteria(productName, id, type);
 	}
 	
 	public Product getById(Long id) {
