@@ -2,10 +2,8 @@
  * 
  */
 angular.module('orders').controller('OrdersBasketCtrl',
-		['$scope', '$rootScope', '$location', 'titre', 'ordersBasketSrv', function($scope, $rootScope, $location, titre, ConnectionSrv){
+		['$scope', '$rootScope', '$location', 'titre', 'ordersBasketSrv', function($scope, $rootScope, $location, titre, ordersBasketSrv){
 	$rootScope.titre = titre.libelle;
 	
-	$scope.connect = function(user){
-		ConnectionSrv.connect(user.email, user.password);
-	};
+	
 }]);
