@@ -31,9 +31,15 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Produit'}} // Titre de la page
 		}
+	}).when('/search/:name', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-search.html',	// Template
+		controller : 'SearchProductsCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Recherche'}} // Titre de la page
+		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
-		redirectTo : '/connection'
+		redirectTo : '/'
 	});
 });
 /*

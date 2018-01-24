@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<a class="col-lg-4" ng-repeat="product in searchProduct" href="#!/catalogue/{{product.id}}">
+				<div class="col-lg-6 row">
+					<img alt="bière" class=img-responsive src="images/biere1.jpg">
+				</div>
+				<div class="col-lg-6">
+					<h3 class="text-center">
+						<span ng-bind="product.productName"></span>
+					</h3>
+					<h4>
+						<span ng-bind="product.type"></span>�
+					</h4>
+					<h4 class="text-center red">
+						<span>{{product.price}} €</span>�
+					</h4>				
+				</div>		
+		</a>
+	</div>
+</div>
+

@@ -49,4 +49,16 @@ angular.module('products').service("ProductService", ['$http', function($http){
 			return {};
 		})
 	}
+	
+	var getSearchByName = $http.get('/api/product/search?name='+name);
+	this.searchByName = function(name){			
+		var p2 = getSearchByName.then(function(response){
+		var liste = response.data;
+		
+		return liste;
+				
+		}); 
+		return p2;		
+		
+	};
 }]);
