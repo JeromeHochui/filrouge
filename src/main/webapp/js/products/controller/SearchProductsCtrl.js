@@ -1,9 +1,9 @@
-angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routeParams', 'ProductService', function($scope, $routeParams, ProductService){
+angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routeParams', 'productSrv', function($scope, $routeParams, productSrv){
 	
 	$scope.searchProduct = [];
 	var name = $routeParams.name;
 	
-	ProductService.searchByName(name).then(function(data){
+	productSrv.searchByName(name).then(function(data){
 		$scope.searchProduct = data;
 		
 	});

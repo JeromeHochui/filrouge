@@ -1,8 +1,8 @@
-angular.module('products').controller('listProductController', ['$scope', '$routeParams', 'ProductService', function($scope, $routeParams, ProductService){
+angular.module('products').controller('ListProductsCtrl', ['$scope', '$routeParams', 'productSrv', function($scope, $routeParams, productSrv){
 	
 	$scope.list = [];
 	
-	ProductService.getAll().then(function(list){
+	productSrv.getAll().then(function(list){
 		$scope.list = list;
 	});
 }]);

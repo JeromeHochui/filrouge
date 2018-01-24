@@ -1,9 +1,9 @@
-angular.module('products').controller('productController', ['$scope', '$routeParams', 'ProductService', function($scope, $routeParams, ProductService){
+angular.module('products').controller('ProductCtrl', ['$scope', '$routeParams', 'productSrv', function($scope, $routeParams, productSrv){
 	
 	$scope.product = undefined;
 	var id = $routeParams.id;
 	
-	ProductService.getOne(id).then(function(data){
+	productSrv.getOne(id).then(function(data){
 		$scope.product = data;
 		console.log($scope.product);
 	});
