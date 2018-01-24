@@ -21,13 +21,13 @@ angular.module('app').config(function($routeProvider){
 		}
 	}).when('/catalogue', {	// Route pour la page de catalogue
 		templateUrl : './partial/tpl-catalogue.html',	// Template
-		controller : 'listProductController',	// Controller
+		controller : 'ListProductsCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Catalogue'}} // Titre de la page
 		}
 	}).when('/catalogue/:id', {	// Route pour la page de detail d'un produit
 		templateUrl : './partial/tpl-details-product.html',	// Template
-		controller : 'productController',	// Controller
+		controller : 'ProductCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Produit'}} // Titre de la page
 		}
@@ -38,9 +38,16 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Panier'}} // Titre de la page
 		}
+	})
+	.when('/search/:name', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-search.html',	// Template
+		controller : 'SearchProductsCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Recherche'}} // Titre de la page
+		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
-		redirectTo : '/accueil'
+		redirectTo : '/'
 	});
 });
 /*
