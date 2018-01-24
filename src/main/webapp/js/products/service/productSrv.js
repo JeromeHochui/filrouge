@@ -51,7 +51,7 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	}
 	
 	this.search = function(data){
-		var promiseSearch = $http.get('/api/product/search?name='+name);
+		var promiseSearch = $http.get('/api/product/search?productName='+name);
 		return promiseSearch.then(function(response){
 			return response.data;
 		}, function(){
