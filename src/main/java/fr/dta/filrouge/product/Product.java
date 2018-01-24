@@ -72,7 +72,7 @@ public class Product implements Serializable {
 	private String description;
 	
 	@Column(name = "path_picture")
-	private String path_picture;
+	private String pathPicture;
 
 	public Product() {}
 	
@@ -84,7 +84,7 @@ public class Product implements Serializable {
 		this.alcoholPercentage = alcoholPercentage;
 		this.active=active;
 		this.description=description;
-		this.path_picture=path_picture;
+		this.pathPicture=path_picture;
 	}
 	
 	// Getters and Setters
@@ -114,7 +114,7 @@ public class Product implements Serializable {
 	public static long getSerialversionuid() {return serialVersionUID;}
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
-	public String getPathpicture() {return path_picture;}
-	public void setPathpicture(String path_picture) {this.path_picture = path_picture;}
+	public String getPathpicture() {return pathPicture;}
+	public void setPathpicture(String path_picture) {this.pathPicture = path_picture;}
 
 }
