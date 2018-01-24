@@ -5,7 +5,7 @@ angular.module('products').controller('searchProductsByTypeCtrl', ['$scope', '$r
 	
 	productSrv.searchByType(type).then(function(data){
 		$scope.searchProductByType = data;
-		console.log($scope.searchProductByType);
+		
 		
 	});
 
