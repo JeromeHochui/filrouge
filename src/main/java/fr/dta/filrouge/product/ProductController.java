@@ -1,4 +1,3 @@
-
 package fr.dta.filrouge.product;
 
 import java.util.List;
@@ -89,4 +88,3 @@ public class ProductController {
 	        return "Le fichier a bien été envoyé. redirect:/";
 	    }
 }
-

@@ -1,4 +1,4 @@
-package fr.dta.filrouge.orderproduct;
+package fr.dta.filrouge.orders;
 
 import java.util.List;
 
@@ -17,46 +17,47 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.dta.filrouge.exceptions.NotFoundException;
 
 @RestController
-@RequestMapping(value = "/api/order-product")
+@RequestMapping(value = "/api/orders")
 @Transactional
-public class OrderProductController {
+public class OrdersController {
 	@Autowired
-	private OrderProductService service;
+	private OrdersService service;
+	
 	
 	@CrossOrigin
 	@RequestMapping(value = "all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<OrderProduct> get () {
-		List<OrderProduct> opList = service.getAll();
-		if(opList == null) {
+	public List<Orders> getAll () {
+		List<Orders> orders = service.getAll();
+		if(orders == null) {
 			throw new NotFoundException();
 		}
-		return opList;
+		return orders;
 	}
 	
 	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public OrderProduct getOne (@PathVariable Long id) {
-		OrderProduct op = service.getById(id);
-		if (op == null) {
+	public Orders getOne (@PathVariable Long id) {
+		Orders order = service.getById(id);
+		if (order == null) {
 			throw new NotFoundException();
 		}
-		return op;
+		return order;
 	}
 	
 	@CrossOrigin
 	@RequestMapping(path = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public OrderProduct create (@RequestBody OrderProduct orderProduct) {
-		service.create(orderProduct);
-		return orderProduct;
+	public Orders create (@RequestBody Orders order) {
+		service.create(order);
+		return order;
 	}
 	
 	@CrossOrigin
 	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public OrderProduct update (@RequestBody OrderProduct orderProduct) {
-		service.update(orderProduct);
-		return orderProduct;
+	public Orders update (@RequestBody Orders order) {
+		service.update(order);
+		return order;
 	}
 	
 	@CrossOrigin
@@ -65,6 +66,4 @@ public class OrderProductController {
 	public void delete (@PathVariable Long id) {
 		service.delete(id);
 	}
-	
-	
 }
