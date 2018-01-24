@@ -15,16 +15,13 @@ import fr.dta.filrouge.orders.Orders;
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Long> {
 	
-	Orders findById(@Param("id") String id);
+	Orders findById(Long id);
 	
+	Orders findByReference(String reference);
 	
-	Orders findByReference(@Param("reference") String reference);
+	List<Orders> findByCommandDate(String commandDate);
 	
-	@RestResource(path="findByDateCommande", rel="findByDateCommande")
-	@Query("select o from Orders o where o.commandDate = :commandDate")
-	List<Orders> findByDateCommande(@Param("commandDate") String commandDate);
-	
-	@RestResource(path="findByUserId", rel="findByUserId")
-	@Query("select o from Orders o where o.users.id = :id")
-	Orders findByUsersId(@Param("id") Long id);
+	//@RestResource(path="findByUserId", rel="findByUserId")
+	//@Query("select o from Orders o where o.users.id = :id")
+	Orders findByUsersId(Long id);
 }
