@@ -52,11 +52,20 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	
 	this.searchByName = function(name){
 		
-		var promiseSearch = $http.get('/api/product/search?productName='+name)
+		var getByName = $http.get('/api/product/search?productName='+name)
 			.then(function(response){
 				return response.data;
 			});
-				return promiseSearch;
+				return getByName;
+			}
+	
+	this.searchByType = function(type){
+		
+		var getType = $http.get('api/product/search?type='+type)
+			.then(function(response){
+				return response.data;
+			});
+				return getType;
 			}
 		
 	

@@ -11,5 +11,4 @@ angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routePa
 	
 	
 	
-	
 }]);
