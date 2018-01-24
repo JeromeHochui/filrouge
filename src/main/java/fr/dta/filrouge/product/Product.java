@@ -38,8 +38,7 @@ public class Product implements Serializable {
 	@NotBlank
 	private String productName;
 	
-	@Column
-	@NotBlank
+	@Column	
 	@Enumerated(EnumType.STRING)
 	private Type type;
 	
@@ -72,11 +71,12 @@ public class Product implements Serializable {
 	@Column(name = "description")
 	private String description;
 	
-	
+	@Column(name = "path_picture")
+	private String path_picture;
 
 	public Product() {}
 	
-	public Product (String productName, Float price, Integer clVolume, Integer gWeight, Float alcoholPercentage, String container, Boolean active, String description) {
+	public Product (String productName, Float price, Integer clVolume, Integer gWeight, Float alcoholPercentage, String container, Boolean active, String description, String path_picture) {
 		this.productName = productName;
 		this.price = price;
 		this.clVolume = clVolume;
@@ -84,6 +84,7 @@ public class Product implements Serializable {
 		this.alcoholPercentage = alcoholPercentage;
 		this.active=active;
 		this.description=description;
+		this.path_picture=path_picture;
 	}
 	
 	// Getters and Setters
@@ -98,7 +99,7 @@ public class Product implements Serializable {
 	public void setPrice(Float price) {this.price = price;}
 	public Integer getClVolume() {return clVolume;}
 	public void setClVolume(Integer clVolume) {this.clVolume = clVolume;}
-	public Integer getgWeight() {return gWeight;}
+	public Integer getgWeight() {return gWeight;}	
 	public void setgWeight(Integer gWeight) {this.gWeight = gWeight;}
 	public Float getAlcoholPercentage() {return alcoholPercentage;}
 	public void setAlcoholPercentage(Float alcoholPercentage) {this.alcoholPercentage = alcoholPercentage;}
@@ -113,4 +114,7 @@ public class Product implements Serializable {
 	public static long getSerialversionuid() {return serialVersionUID;}
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
+	public String getPathpicture() {return path_picture;}
+	public void setPathpicture(String path_picture) {this.path_picture = path_picture;}
+
 }

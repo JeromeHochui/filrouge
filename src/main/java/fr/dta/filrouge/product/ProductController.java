@@ -1,4 +1,3 @@
-
 package fr.dta.filrouge.product;
 
 import java.util.List;
@@ -9,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,8 +28,11 @@ public class ProductController {
 	private ProductService service;
 	
 	@CrossOrigin
-	@RequestMapping(value = {"{id}", "{name}", "{type}"}, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> get(@PathVariable(required=false) Long id, @PathVariable(required=false) String name, @PathVariable(required=false) Type type) {
+	@RequestMapping(value = "search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Product> get(@RequestParam(value="id", required=false) Long id,
+							@RequestParam(value="product_name", required=false) String name, 
+							@RequestParam(value="type",required=false) Type type) {
+		
 		List<Product> product = service.getByCriteria(name, id, type);
 		
 		if(product == null) {
@@ -41,15 +42,7 @@ public class ProductController {
 		}
 	}
 	
-	@CrossOrigin
-	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Product getOne(@PathVariable Long id) {
-		Product product = service.getById(id);
-		if (product == null) {
-			throw new NotFoundException();
-		}
-		return product;
-	}
+	
 	
 	@CrossOrigin
 	@RequestMapping(path = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -61,31 +54,37 @@ public class ProductController {
 	
 	@CrossOrigin
 	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(value = HttpStatus.CREATED)
+	@ResponseStatus(value = HttpStatus.OK)
 	public Product update (@RequestBody Product product) {
 		service.update(product);		
 		return product;
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "delete", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(value = HttpStatus.CREATED)
-	public void delete (@RequestBody Product product) {	
+	@RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void delete (@PathVariable Long id) {		
 		
-		
-		
-	}	
+	}
 	
+	@CrossOrigin
+	@RequestMapping(path = "activate/{id}", method = RequestMethod.PUT)
+	@ResponseStatus(value = HttpStatus.OK)
+	public Product desactivateActivate (@RequestBody Product product) {	
+		service.desactivateActivate(product);
+		return product;		
+	}
 	
-	 @PostMapping("/upload/{id}")
-	    public String handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable Long id,
+	@CrossOrigin
+	@RequestMapping(path = "upload/{id}", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	    public String handleFileUpload(@RequestBody Product product, @RequestParam(value ="file") MultipartFile file, @PathVariable Long id, 
 	            RedirectAttributes redirectAttributes) {
 
-	    	service.store(file);
+	    	service.store(file, product);
 	        redirectAttributes.addFlashAttribute("message",
-	                "You successfully uploaded " + file.getOriginalFilename() + "!");
+	                "Le fichier a bien été envoyé " + file.getOriginalFilename() + "!");
 
-	        return "redirect:/";
+	        return "Le fichier a bien été envoyé. redirect:/";
 	    }
 }
-

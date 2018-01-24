@@ -5,13 +5,31 @@
 // Déclaration du module
 angular.module('app', ['ngRoute', 'users', 'products', 'orders']);
 
-
 angular.module('app').config(function($routeProvider){
 	$routeProvider.when('/connection', {	// Route pour la page de connexion
-		templateUrl : './partial/tpl-connexion.html',	// Template
+		templateUrl : './partial/connexion.html',	// Template
 		controller : 'UsersConnectionCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Connexion'}} // Titre de la page
+		}
+	})
+	.when('/', {
+		templateUrl : './oldhtml/tpl-page-accueil.html',	// Template
+		controller : 'UsersConnectionCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Accueil'}} // Titre de la page
+		}
+	}).when('/catalogue', {	// Route pour la page de catalogue
+		templateUrl : './partial/tpl-catalogue.html',	// Template
+		controller : 'listProductController',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Catalogue'}} // Titre de la page
+		}
+	}).when('/catalogue/:id', {	// Route pour la page de detail d'un produit
+		templateUrl : './partial/tpl-details-product.html',	// Template
+		controller : 'productController',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Produit'}} // Titre de la page
 		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
