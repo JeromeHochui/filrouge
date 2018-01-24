@@ -2,7 +2,7 @@
  * Service de persistance des utilisateurs
  */
 
-angular.module('users').factory('Srv', 
+angular.module('users').factory('usersPersistanceSrv', 
 			['$http', '$q', 
 	function ($http,   $q) {
 	

@@ -2,7 +2,7 @@
  * Service pour la connexion des utilisateurs
  */
 
-angular.module('users').factory('ConnectionSrv', 
+angular.module('users').factory('connectionSrv', 
 			['$http', '$q', function ($http, $q) {
 
 	return {
