@@ -15,7 +15,7 @@ angular.module('app').config(function($routeProvider){
 	})
 	.when('/accueil', {
 		templateUrl : './partial/tpl-catalogue.html',	// Template
-		controller : 'listProductController',	// Controller
+		controller : 'ListProductsCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Accueil'}} // Titre de la page
 		}
