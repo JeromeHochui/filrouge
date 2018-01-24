@@ -6,8 +6,9 @@ angular.module('orders').factory('ordersBasketSrv',
 			['$http', '$q', function ($http, $q) {
 				
 	var basket = []; // contient une liste de : {quantity, product}
-	(function(){
-		var produit = { productName:'kronembourg',
+	function initialise(){
+		var produit = { id: 1,
+				 productName:'kronembourg',
 				 price:15,
 				 clVolume: 15,
 				 gWeight: 15,
@@ -17,7 +18,8 @@ angular.module('orders').factory('ordersBasketSrv',
 				 active:false,
 				 description:'une très bonne bière',
 				 type:'Brune'};
-		var produit2 = { productName:'Heineken',
+		var produit2 = { id: 2,
+				 productName:'Heineken',
 				 price:10,
 				 clVolume: 33,
 				 gWeight: 33,
@@ -31,7 +33,7 @@ angular.module('orders').factory('ordersBasketSrv',
 		var couple2 = {product: produit2, quantity: 3};
 		basket.push(couple);
 		basket.push(couple2);
-	});
+	};
 	
 	
 	/*
@@ -50,6 +52,9 @@ angular.module('orders').factory('ordersBasketSrv',
 	}
 	
 	return {
+		initialiser : function(){
+			initialise();
+		},
 		
 		addToBasket : function(product, quantity){
 			if (product !== undefined) {
@@ -67,6 +72,15 @@ angular.module('orders').factory('ordersBasketSrv',
 		},
 		
 		getBasket : function () {
+			return basket;
+		},
+		
+		removeFromBasket : function(productId){
+			angular.forEach(basket, function(value, key){
+				if(value.product.id == productId){
+					basket.splice(key, key+1);
+				}
+			});
 			return basket;
 		}
 	}

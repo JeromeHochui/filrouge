@@ -6,6 +6,7 @@ angular.module('orders').controller('OrdersBasketCtrl',
 	
 	$scope.basket = [];
 	$rootScope.titre = titre.libelle;
+	ordersBasketSrv.initialiser();
 	$scope.basket = ordersBasketSrv.getBasket();
 	
 	function calculPrixTotal(){
@@ -15,4 +16,8 @@ angular.module('orders').controller('OrdersBasketCtrl',
 		})
 	}
 	calculPrixTotal();
+	
+	$scope.removeFromBasket = function(productId){
+		$scope.basket = ordersBasketSrv.removeFromBasket(productId);
+	}
 }]);
