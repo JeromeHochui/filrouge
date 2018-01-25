@@ -31,6 +31,12 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Produit'}} // Titre de la page
 		}
+	}).when('/creation', {	// Route pour la page de creation de compte
+		templateUrl : './partial/tpl-creation-compte.html',	// Template
+		controller : 'UsersCreationCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Creation Client'}} // Titre de la page
+		}
 	})
 	.when('/panier', {
 		templateUrl : './partial/tpl-basket.html',	// Template
