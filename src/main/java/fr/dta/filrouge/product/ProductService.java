@@ -20,8 +20,8 @@ public class ProductService {
 	public ProductService() {
 	}
 	
-	public List<Product> getByCriteria(String name, Long id, Type type) {
-		return repositoryCustom.findByCriteria(name, id, type);
+	public List<Product> getByCriteria(String productName, Long id, Type type) {
+		return repositoryCustom.findByCriteria(productName, id, type);
 	}
 	
 	public Product getById(Long id) {
@@ -38,16 +38,6 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 	
-	public void desactivateActivate(Product product) {	
-		product.setActive(!product.getActive());
-		repository.saveAndFlush(product);
-	}
-	
-	public void store(MultipartFile file, Product product) {
-		product.setPathpicture(file.getOriginalFilename());
-		repository.saveAndFlush(product);
-	}
-	
 	public boolean delete(Long id) {
 		Product productToDelete = getById(id);
 		Hibernate.initialize(productToDelete.getQuantities());
@@ -59,8 +49,13 @@ public class ProductService {
 		}
 	}
 	
+	public void desactivateActivate(Product product) {	
+		product.setActive(!product.getActive());
+		repository.saveAndFlush(product);
+	}
 	
-	
-	
+	public void store(MultipartFile file, Product product) {
+		product.setPathpicture(file.getOriginalFilename());
+		repository.saveAndFlush(product);
+	}
 }
-
