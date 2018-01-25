@@ -31,6 +31,12 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Produit'}} // Titre de la page
 		}
+	}).when('/creation', {	// Route pour la page de creation de compte
+		templateUrl : './partial/tpl-creation-compte.html',	// Template
+		controller : 'UsersCreationCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Creation Client'}} // Titre de la page
+		}
 	})
 	.when('/panier', {
 		templateUrl : './partial/tpl-basket.html',	// Template
@@ -49,15 +55,23 @@ angular.module('app').config(function($routeProvider){
 	
 	}).when('/type/:type', {	// Route pour la recherche (pour le moment que par nom)
 		templateUrl : './partial/tpl-search-type.html',	// Template
-		controller : 'searchProductsByTypeCtrl',	// Controller
+		controller : 'SearchProductsByTypeCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Recherche par type'}} // Titre de la page
 		}
 	
 	
+	}).when('/edit/:id', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-edit-product.html',	// Template
+		controller : 'EditProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Editer un produit'}} // Titre de la page
+		}
+	
+	
 	});
 	$routeProvider.otherwise({	// Route par défaut
-		redirectTo : '/'
+		redirectTo : '/accueil'
 	})
 	
 	;

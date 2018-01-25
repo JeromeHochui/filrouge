@@ -3,17 +3,8 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-{"adress":"adress 1", "birthdate":"2000-01-24", "firstname":"Toto", "lastname":"Thual", "password":"pass123", "phone":635268945, "email":"user1@mail.yolo", "isAdmin":false }
-{"adress":"adress 2", "birthdate":"1989-12-25", "firstname":"Titi", "lastname":"Lallemand", "password":"pass456", "phone":256489532, "email":"user2@mail.yolo", "isAdmin":false }
-{"adress":"adress 3", "birthdate":"1969-03-14", "firstname":"Tutu", "lastname":"Tisserand", "password":"pass789", "phone":782569841, "email":"user3@mail.yolo", "isAdmin":false }
-{"adress":"adress 4", "birthdate":"1994-11-30", "firstname":"Tata", "lastname":"Thual", "password":"pass147", "phone":856231478, "email":"user4@mail.yolo", "isAdmin":false }
-{"adress":"adress 5", "birthdate":"1994-08-08", "firstname":"Tete", "lastname":"Lallemand", "password":"pass258", "phone":256321478, "email":"user5@mail.yolo", "isAdmin":false }
-{"adress":"adress 6", "birthdate":"1997-04-11", "firstname":"Tyty", "lastname":"Tisserand", "password":"pass369", "phone":698532147, "email":"user6@mail.yolo", "isAdmin":false }
-{"adress":"adress 7", "birthdate":"2001-02-09", "firstname":"Altoto", "lastname":"Thual", "password":"pass159", "phone":639285146, "email":"user7@mail.yolo", "isAdmin":false }
-{"adress":"adress 8", "birthdate":"1990-05-13", "firstname":"Beltiti", "lastname":"Lallemand", "password":"pass357", "phone":634825636, "email":"user8@mail.yolo", "isAdmin":false }
-{"adress":"adress 9", "birthdate":"1982-07-02", "firstname":"Chartutu", "lastname":"Tisserand", "password":"pass753", "phone":496153987, "email":"user9@mail.yolo", "isAdmin":false }
-{"adress":"adress 10", "birthdate":"1996-06-06", "firstname":"Dantete", "lastname":"Thual", "password":"pass951", "phone":192585862, "email":"user10@mail.yolo", "isAdmin":false }
-{"adress":"adress 11", "birthdate":"1968-05-20", "firstname":"Ratata", "lastname":"Lallemand", "password":"monmotdepassesuperrelou", "phone":463856256, "email":"user11@mail.yolo", "isAdmin":false }
+{"adress":"", "birthdate":"", "firstname":"", "lastname":"", "password":"", "phone":, "email":"usertoto@mail.titi", "isAdmin":false }
+
 {"adress":"285 rue Maurice Bejart 34080 Montpellier", "birthdate":"2018-01-24", "firstname":"admin", "lastname":"admin", "password":"admin", "phone":600000666, "email":"admin@adminbiere.fr", "isAdmin":true }
 
 
@@ -21,13 +12,57 @@
 ------------------------------Products-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-{"productName":"Kronenbourg", "price":1, "clVolume": 25, "gWeight": 100, "alcoholercentage":4.5, "stock":666, "container":"Bottle", "active":true, "description":"une bière", "type":"Blonde"}
+
+
+{"productName":"", "price":, "clVolume":, "alcoholPercentage":, "stock":, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"", "pathPicture":"./pictures//"}
 
 
 
+------------Ambrées
+[
+{"productName":"Brigand", "price":2.30, "clVolume":33, "alcoholPercentage":9, "stock":519, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Brigand-9degres-33cl-2euros30.jpg"}
+,
+{"productName":"Grimbergen Optimo Bruno", "price":3.10, "clVolume":33, "alcoholPercentage":10, "stock":485, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Grimbergen_Optimo_Bruno-10degres-33cl-3e10.jpg"}
+,
+{"productName":"Iki Beer Ginger", "price":3.20, "clVolume":33, "alcoholPercentage":5.5, "stock":854, "container":"Bottle", "active":false, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Iki_Beer_Ginger-5_5degres-33cl-3euros20.jpg"}
+,
+{"productName":"Kwak", "price":5.30, "clVolume":75, "alcoholPercentage":8.1, "stock":54, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Kwak-75cl-8_1degres-5e30.jpg"}
+,
+{"productName":"Leffe Vieille Cuvée", "price":2.80, "clVolume":33, "alcoholPercentage":8.2, "stock":845, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Leffe_Vieille_Cuvee-8_2degres-2e80.jpg"}
+,
+{"productName":"Super Bock", "price":2.40, "clVolume":33, "alcoholPercentage":5.2, "stock":845, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Super_Bock-5_2degres-33cl-2_40e.jpg"}
+,
+{"productName":"Troubadour Magma", "price":3, "clVolume":33, "alcoholPercentage":9, "stock":1347, "container":"Bottle", "active":false, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/Bouteille_ambree-Troubadour_Magma-9degres-3euros-33cl.jpg"}
+,
+{"productName":"Urbock 23", "price":3.30, "clVolume":33, "alcoholPercentage":9.6, "stock":744, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/bouteille_ambree-Urbock_23-9_6degres-33cl-3e30.jpg"}
+,
+{"productName":"Leffe de Noel", "price":1.40, "clVolume":33, "alcoholPercentage":6.6, "stock":6935, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/bouteille-33cl-Leffe_de_Noel-Ambree-6_6degres-1e40.jpg"}
+,
+{"productName":"Anchor Steam Beer", "price":3, "clVolume":33, "alcoholPercentage":4.8, "stock":764, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Ambrée", "pathPicture":"./pictures/ambree/bouteille-35.5cl-ambree-Anchor_Steam_Beer-4_8degres-3euros.jpg"}
+]
+------------Blanches
+{"productName":"Mont Blanc", "price":2.90, "clVolume":33, "alcoholPercentage":4.7, "stock":8562, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Blanche", "pathPicture":"./pictures/blanche/Blanche_Mont_Blanc-Blanche-4_7degres-33cl-2_90euros.jpg"}
+{"productName":"Westbrook White Thai", "price":4.10, "clVolume":33, "alcoholPercentage":5, "stock":1965, "container":"Can", "active":true, "description":"Description à renseigner.", "type":"Blanche", "pathPicture":"./pictures/blanche/Westbrook_White_Thai-Blanche-5degres-33cl-4_10euros.jpg"}
+
+------------Blondes
+{"productName":"La Madelon", "price":3, "clVolume":33, "alcoholPercentage":5.5, "stock":666, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Blonde", "pathPicture":"./pictures/blonde/la-madelon-biere-blonde-33-cl-alcool-55-vol.jpg"}
 
 
+------------Brunes
+{"productName":"Chimay Bleue", "price":2.40, "clVolume":33, "alcoholPercentage":9, "stock":666, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_Brune-Chimay_bleue-9degres-33cl-2e40.jpg"}
+{"productName":"Delirium Nocturnum", "price":3.30, "clVolume":33, "alcoholPercentage":8.5, "stock":1600, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Delirium_Nocturnum-8_5degres-3.3e.jpg"}
+{"productName":"Duchesse de Bourgogne", "price":2.50, "clVolume":25, "alcoholPercentage":6.3, "stock":260, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Duchesse_de_Bourgogne-25cl-6_3degres-2_5euros.jpg"}
+{"productName":"Lion Stout", "price":3.20, "clVolume":33, "alcoholPercentage":8, "stock":199, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Lion_Stout-33cl-3_20euros.jpg"}
+{"productName":"Malheur 12", "price":3.10, "clVolume":33, "alcoholPercentage":12, "stock":320, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Malheur_12-12degres-3e10.jpg"}
+{"productName":"Mc Chouffe", "price":2.70, "clVolume":33, "alcoholPercentage":8, "stock":400, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Mc_Chouffe-8degres-33cl.jpg"}
+{"productName":"Petrus Dubbel Brune", "price":2.20, "clVolume":33, "alcoholPercentage":6.5, "stock":830, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Petrus_dubbel_brune-6_5degres-33cl-2_2e.jpg"}
+{"productName":"Reinaert Grand cru", "price":2.40, "clVolume":33, "alcoholPercentage":9.5, "stock":135, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Reinaert_Grand_cru-9_5degres-33cl-2e40.jpg"}
+{"productName":"Rochefort 10", "price":3.10, "clVolume":33, "alcoholPercentage":1.3, "stock":0, "container":"Bottle", "active":false, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Rochefort_10-1_3degres-33cl-3_10e.jpg"}
+{"productName":"Saint Bernardus Abt 12", "price":2.50, "clVolume":33, "alcoholPercentage":10, "stock":64, "container":"Bottle", "false":true, "description":"Description à renseigner.", "type":"Brune", "pathPicture":"./pictures/brune/Bouteille_brune-Saint_Bernardus_Abt_12-10degres-33cl-2e50.jpg"}
 
+
+------------Noires
+{"productName":"Guiness Foreign Extra Stout", "price":6, "clVolume":33, "alcoholercentage":7.5, "stock":1337, "container":"Bottle", "active":true, "description":"Description à renseigner.", "type":"Noire", "pathPicture":"./pictures/noire/Bouteille_noire-Guiness_Foreign_Extra_Stout-7_5degres-33cl-3e10.jpg"}
 
 
 

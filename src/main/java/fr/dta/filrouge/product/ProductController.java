@@ -54,11 +54,21 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "multiple-create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public List<Product> multipleCreate (@RequestBody List<Product> productList) {
+		service.multipleCreate(productList);
+		return productList;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(path = "update", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public Product update (@RequestBody Product product) {
-		service.update(product);		
+	public Product update ( @RequestBody Product product) {
+		
+		service.update(product);
 		return product;
+		
 	}
 	
 	@CrossOrigin
@@ -91,3 +101,4 @@ public class ProductController {
 	        return "redirect:/";
 	    }
 }
+

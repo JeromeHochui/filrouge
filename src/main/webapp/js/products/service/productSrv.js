@@ -33,12 +33,12 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	}
 	
 	this.edit = function(data){
-		var promiseEdit = $http.post('/api/product/update', data)
-		return promiseEdit.then(function(response){
-			return response.data;
-		}, function(){
-			return {};
-		})
+		var edit = $http.put('/api/product/update', data)
+			.then(function(response){
+				return response.data;
+			}); 
+		return edit;
+		
 	}
 	
 	this.delete = function(data){
@@ -52,7 +52,7 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	
 	this.searchByName = function(name){
 		
-		var getByName = $http.get('/api/product/search?productName='+name)
+		var getByName = $http.get('/api/product/search', {params:{productName:name}})
 			.then(function(response){
 				return response.data;
 			});
@@ -61,7 +61,7 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	
 	this.searchByType = function(type){
 		
-		var getType = $http.get('api/product/search?type='+type)
+		var getType = $http.get('api/product/search', {params:{type:type}})
 			.then(function(response){
 				return response.data;
 			});

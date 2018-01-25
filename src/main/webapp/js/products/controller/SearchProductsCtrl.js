@@ -1,4 +1,4 @@
-angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routeParams', 'productSrv', function($scope, $routeParams, productSrv){
+angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routeParams', 'productSrv', 'titre', function($scope, $routeParams, productSrv, titre){
 	
 	$scope.searchProduct = [];
 	var name = $routeParams.name;	
