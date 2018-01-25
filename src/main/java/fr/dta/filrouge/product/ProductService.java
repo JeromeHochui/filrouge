@@ -47,5 +47,20 @@ public class ProductService {
 		product.setPathpicture(file.getOriginalFilename());
 		repository.saveAndFlush(product);
 	}
+	
+	public boolean delete(Long id) {
+		Product productToDelete = getById(id);
+		Hibernate.initialize(productToDelete.getQuantities());
+		if (productToDelete.getQuantities().isEmpty()) {
+			repository.delete(productToDelete);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	
+	
 }
 
