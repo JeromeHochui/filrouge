@@ -3,6 +3,8 @@ angular.module('products').controller('ListProductsCtrl', ['$scope', '$rootScope
 	$rootScope.titre = titre.libelle;
 	$scope.list = [];
 	
+	$scope.mini = true;
+	
 	productSrv.getAll().then(function(list){
 		$scope.list = list;
 	});

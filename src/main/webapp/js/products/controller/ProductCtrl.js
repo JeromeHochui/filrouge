@@ -3,6 +3,8 @@ angular.module('products').controller('ProductCtrl', ['$scope', '$rootScope', '$
 	$scope.product = undefined;
 	var id = $routeParams.id;
 	
+	$scope.mini = false;
+	
 	productSrv.getOne(id).then(function(data){
 		
 		$scope.product = data;

@@ -12,6 +12,7 @@ angular.module('products').component('productMini', {
 	}],
 	bindings: {
 		product: "=",
-		quantity: "="
+		quantity: "=",
+		mini: "="
 	}	
 });
