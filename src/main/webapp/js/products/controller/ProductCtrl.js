@@ -5,6 +5,6 @@ angular.module('products').controller('ProductCtrl', ['$scope', '$routeParams', 
 	
 	productSrv.getOne(id).then(function(data){
 		$scope.product = data;
-		console.log($scope.product);
+		
 	});
 }]);

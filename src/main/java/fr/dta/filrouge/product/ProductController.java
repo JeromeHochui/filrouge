@@ -54,9 +54,9 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "update", method = RequestMethod.PUT)
+	@RequestMapping(path = "update", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public Product update ( @RequestBody Product product) {
+	public Product update ( @RequestBody (required= false) Product product) {
 		
 		service.update(product);
 		return product;
