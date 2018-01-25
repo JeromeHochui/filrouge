@@ -74,7 +74,7 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Suppression de produit'}} // Titre de la page
 		}
-	}).when('/activate/', {	// Route pour la recherche (pour le moment que par nom)
+	}).when('/activate', {	// Route pour la recherche (pour le moment que par nom)
 		templateUrl : './partial/tpl-catalogue.html',	// Template
 		controller : 'ActivateProductCtrl',	// Controller
 		resolve : {

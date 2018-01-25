@@ -1,7 +1,7 @@
 package fr.dta.filrouge.product;
 
 public enum Type {
-	Ambrée,
+	Ambree,
 	Blanche,
 	Blonde,
 	Brune,

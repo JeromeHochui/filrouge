@@ -1,10 +1,14 @@
 <div class="col-md-4 miniature-biere">
-	<div class="col-md-6 ">				
+	<div class="col-md-6 ">
+		<br>
 		<img alt="bière" class=img-responsive data-ng-src="{{$ctrl.product.pathPicture}}">
+		<br>
+		
 	</div>
 	<div class="col-md-6 row">						
-		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>						
-		<button class="col-xs-12" ng-click="activate()">Désactiver</button>
+		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>
+		<p>{{$ctrl.product.active}}</p>						
+		<a  href="#!/" ng-click="activate()">Activer/désactiver</a>
 		<a class="col-xs-12" href="#!/edit/{{$ctrl.product.id}}"><p>Modifier</p></a>
 		<a class="col-xs-12" href="#!/delete/{{$ctrl.product.id}}"><p>Supprimer</p></a>
 		<p class="danger" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</p>
@@ -12,7 +16,8 @@
 			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>
 			<span data-ng-show="$ctrl.product.stock <= 0" >Non disponible</span>
 		</p>
-		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>										
+		
+		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>
 	</div>
 	
 </div>
