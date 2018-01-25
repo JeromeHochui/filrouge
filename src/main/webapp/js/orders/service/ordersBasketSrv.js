@@ -52,9 +52,18 @@ angular.module('orders').factory('ordersBasketSrv',
 		return quantity;
 	}
 	
+	 function updateBasketCookies() {
+		var basketsCookie = {};
+		angular.forEach(basket, function(item, key) {
+			basketsCookie[key] = item;
+		});
+		$cookies.putObject('basket', basketsCookie);
+	}
+	
 	return {
 		initialiser : function () {
 			initialise();
+			updateBasketCookies();
 		},
 		
 		addToBasket : function(product, quantity){
@@ -69,6 +78,7 @@ angular.module('orders').factory('ordersBasketSrv',
 				
 				// On ajoute le couple produit / quantité à la commande
 				basket.push(orderProduct);
+				updateBasketCookies();
 			}
 		},
 		
@@ -76,10 +86,8 @@ angular.module('orders').factory('ordersBasketSrv',
 		// Toujours sous la forme product/quantity
 		getBasket : function () {
 			var basketsCookie;
-			console.log('avant');
-			if(!basket.length) {
-				basketsCookie = $cookies.get('basket');
-				console.log(basketsCookie);
+			if(basket.length !== undefined) {
+				basketsCookie = $cookies.getObject('basket');
 				if(basketsCookie) {
 					angular.forEach(basketsCookie, function(item, key) {
 						basket[key] = item;
@@ -97,15 +105,8 @@ angular.module('orders').factory('ordersBasketSrv',
 					basket.splice(key, key+1);
 				}
 			});
+			updateBasketCookies();
 			return basket;
-		},
-		
-		updateBasketCookies : function () {
-			var basketsCookie = {};
-			angular.forEach(basket, function(item, key) {
-				basketsCookie[key] = item;
-			});
-			$cookies.put('basket', basketsCookie);
 		},
 		
 		emptyBasket : function () {
