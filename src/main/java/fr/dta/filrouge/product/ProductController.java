@@ -54,10 +54,17 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
+	@RequestMapping(path = "multiple-create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public List<Product> multipleCreate (@RequestBody List<Product> productList) {
+		service.multipleCreate(productList);
+		return productList;
+	}
+	
+	@CrossOrigin
 	@RequestMapping(path = "update", method = RequestMethod.PUT)
 	@ResponseStatus(value = HttpStatus.OK)
 	public Product update ( @RequestBody Product product) {
-		
 		service.update(product);
 		return product;
 		
