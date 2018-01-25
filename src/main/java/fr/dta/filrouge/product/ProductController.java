@@ -62,9 +62,10 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "update", method = RequestMethod.PUT)
+	@RequestMapping(path = "update", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public Product update ( @RequestBody Product product) {
+		
 		service.update(product);
 		return product;
 		
@@ -100,3 +101,4 @@ public class ProductController {
 	        return "redirect:/";
 	    }
 }
+

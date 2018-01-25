@@ -1,3 +1,4 @@
+
 angular.module('products').controller('ProductCtrl', ['$scope', '$rootScope', '$routeParams','productSrv', 'titre', function($scope,  $rootScope, $routeParams, productSrv, titre){
 	$rootScope.titre = titre.libelle;
 	$scope.product = undefined;
@@ -9,6 +10,6 @@ angular.module('products').controller('ProductCtrl', ['$scope', '$rootScope', '$
 		
 		$scope.product = data;
 		
-		console.log($scope.product);
+		console.log('product', $scope.product);
 	});
 }]);

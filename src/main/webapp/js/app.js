@@ -3,7 +3,8 @@
  */
 
 // Déclaration du module
-angular.module('app', ['ngRoute', 'ui.bootstrap', 'users', 'products', 'orders']);
+
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies', 'users', 'products', 'orders']);
 
 angular.module('app').config(function($routeProvider){
 	$routeProvider.when('/connection', {	// Route pour la page de connexion
@@ -55,9 +56,17 @@ angular.module('app').config(function($routeProvider){
 	
 	}).when('/type/:type', {	// Route pour la recherche (pour le moment que par nom)
 		templateUrl : './partial/tpl-search-type.html',	// Template
-		controller : 'searchProductsByTypeCtrl',	// Controller
+		controller : 'SearchProductsByTypeCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Recherche par type'}} // Titre de la page
+		}
+	
+	
+	}).when('/edit/:id', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-edit-product.html',	// Template
+		controller : 'EditProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Editer un produit'}} // Titre de la page
 		}
 	
 	
