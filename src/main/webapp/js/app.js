@@ -69,6 +69,14 @@ angular.module('app').config(function($routeProvider){
 		}
 	
 	
+	}).when('/activate/', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-catalogue.html',	// Template
+		controller : 'ActivateProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Activer/désactiver un produit un produit'}} // Titre de la page
+		}
+	
+	
 	});
 	$routeProvider.otherwise({	// Route par défaut
 		redirectTo : '/accueil'

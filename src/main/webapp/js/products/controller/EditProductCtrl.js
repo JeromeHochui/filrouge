@@ -2,13 +2,10 @@ angular.module('products').controller('EditProductCtrl', ['$scope', '$routeParam
 	
 	$scope.product = undefined;
 	var id = $routeParams.id;
-	console.log(id);
-	
+	console.log(id);	
 	
 	productSrv.getOne(id).then(function(data){
-		$scope.product = data;
-		console.log($scope.product);
-		
+		$scope.product = data;	
 		
 	});
 
@@ -18,7 +15,7 @@ angular.module('products').controller('EditProductCtrl', ['$scope', '$routeParam
 			$scope.product = dataEdit;
 			console.log('Editproduct ctrl '+$scope.product);
 			$location.path('/catalogue/'+id);
-			console.log($scope.product);
+			
 			
 		});
 	}

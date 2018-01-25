@@ -71,3 +71,8 @@ footer .copyright {
 	background-color: #493f56;
 	color: white;
 }
+
+hr {
+  width: 250px;
+        height: 87px;
+}
