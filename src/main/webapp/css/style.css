@@ -52,7 +52,7 @@
 }
 
 .miniature-biere {
-	height: 250px;
+	height: 275px;
 	border: solid 1px black;
 }
 
@@ -70,4 +70,9 @@ footer .copyright {
 .background-title{
 	background-color: #493f56;
 	color: white;
+}
+
+hr {
+  width: 250px;
+        height: 87px;
 }

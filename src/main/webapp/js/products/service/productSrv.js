@@ -14,7 +14,7 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	var ps = {};
 	this.getOne = function(id){
 		if(!ps[id]){
-			ps[id] = $http.get('/api/product/search?id='+id);
+			ps[id] = $http.get('/api/product/search',{params:{id:id}});
 		}
 		var p2 = ps[id].then(function(response){
 			console.log(response.data);
@@ -67,7 +67,20 @@ angular.module('products').service("productSrv", ['$http', function($http){
 			});
 				return getType;
 			}
-
+	
+	this.activate = function(data){
+		
+		var getActivate = $http.put('api/product/activate', data)
+			.then(function(response){
+				return response.data;
+			});
+				return getActivate;
+			}
+		
+		
+	
+	
+	
 }]);
 
 

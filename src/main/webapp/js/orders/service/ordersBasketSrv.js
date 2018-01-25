@@ -3,9 +3,10 @@
  */
 
 angular.module('orders').factory('ordersBasketSrv', 
-			['$http', '$q', function ($http, $q) {
+			['$http', '$q', '$cookies', function ($http, $q, $cookies) {
 				
 	var basket = []; // contient une liste de : {quantity, product}
+	
 	function initialise(){
 		var produit = { id: 1,
 				 productName:'kronembourg',
@@ -51,9 +52,18 @@ angular.module('orders').factory('ordersBasketSrv',
 		return quantity;
 	}
 	
+	 function updateBasketCookies() {
+		var basketsCookie = {};
+		angular.forEach(basket, function(item, key) {
+			basketsCookie[key] = item;
+		});
+		$cookies.putObject('basket', basketsCookie);
+	}
+	
 	return {
-		initialiser : function(){
+		initialiser : function () {
 			initialise();
+			updateBasketCookies();
 		},
 		
 		addToBasket : function(product, quantity){
@@ -68,20 +78,41 @@ angular.module('orders').factory('ordersBasketSrv',
 				
 				// On ajoute le couple produit / quantité à la commande
 				basket.push(orderProduct);
+				updateBasketCookies();
 			}
 		},
 		
+		// Fonction pour retourner la liste des produits à afficher dans le panier
+		// Toujours sous la forme product/quantity
 		getBasket : function () {
+			var basketsCookie;
+			if(basket.length !== undefined) {
+				basketsCookie = $cookies.getObject('basket');
+				if(basketsCookie) {
+					angular.forEach(basketsCookie, function(item, key) {
+						basket[key] = item;
+					})
+				}
+			}
 			return basket;
 		},
 		
+		// Fonction pour supprimer un produit du panier
 		removeFromBasket : function(productId){
 			angular.forEach(basket, function(value, key){
 				if(value.product.id == productId){
+					//Avec splice() on peut enlever à l'index/index+1 un item de la liste
 					basket.splice(key, key+1);
 				}
 			});
+			updateBasketCookies();
 			return basket;
+		},
+		
+		emptyBasket : function () {
+			basket = [];
+			$cookies.remove('basket');
 		}
+		
 	}
 }]);

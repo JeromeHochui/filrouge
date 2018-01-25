@@ -3,7 +3,8 @@
  */
 
 // Déclaration du module
-angular.module('app', ['ngRoute', 'users', 'products', 'orders']);
+
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies', 'users', 'products', 'orders']);
 
 angular.module('app').config(function($routeProvider){
 	$routeProvider.when('/connection', {	// Route pour la page de connexion
@@ -67,22 +68,22 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Editer un produit'}} // Titre de la page
 		}
-	
-	
 	}).when('/delete/:id', {	// Route pour la suppression d'un produit
 		templateUrl : './partial/tpl-delete-product.html',	// Template
 		controller : 'DeleteProductCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Suppression de produit'}} // Titre de la page
 		}
-	
-	
+	}).when('/activate/', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-catalogue.html',	// Template
+		controller : 'ActivateProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Activer/désactiver un produit un produit'}} // Titre de la page
+		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
 		redirectTo : '/accueil'
-	})
-	
-	;
+	});
 });
 /*
  * Déclaration des routes
