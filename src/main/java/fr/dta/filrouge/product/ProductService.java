@@ -55,8 +55,9 @@ public class ProductService {
 		}
 	}
 	
-	public void desactivateActivate(Product product) {	
-		product.setActive(!product.getActive());
+	public void desactivateActivate(Product product) {			
+		
+		product.setActive(!product.getActive());						
 		repository.saveAndFlush(product);
 	}
 	

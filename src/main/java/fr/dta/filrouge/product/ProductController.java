@@ -81,7 +81,7 @@ public class ProductController {
 	}
 	
 	@CrossOrigin
-	@RequestMapping(path = "activate/{id}", method = RequestMethod.PUT)
+	@RequestMapping(path = "activate", method = RequestMethod.PUT)
 	@ResponseStatus(value = HttpStatus.OK)
 	public Product desactivateActivate (@RequestBody Product product) {	
 		service.desactivateActivate(product);
