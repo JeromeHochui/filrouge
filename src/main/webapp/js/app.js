@@ -70,7 +70,7 @@ angular.module('app').config(function($routeProvider){
 		}
 	
 	
-	}).when('/activate/', {	// Route pour la recherche (pour le moment que par nom)
+	}).when('/activate', {	// Route pour la recherche (pour le moment que par nom)
 		templateUrl : './partial/tpl-catalogue.html',	// Template
 		controller : 'ActivateProductCtrl',	// Controller
 		resolve : {

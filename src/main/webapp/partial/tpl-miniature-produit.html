@@ -3,15 +3,14 @@
 		<img alt="bière" class=img-responsive data-ng-src="{{$ctrl.product.pathPicture}}">
 	</div>
 	<div class="col-md-6 row">						
-		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>						
-		<button class="col-xs-12" ng-click="activate()">Désactiver</button>
+		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>
+		<p>{{$ctrl.product.active}}</p>						
+		<a  href="#!/" ng-click="activate()">Activer/désactiver</a>
 		<a class="col-xs-12" href="#!/edit/{{$ctrl.product.id}}"><p>Modifier</p></a>
 		<p class="danger" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</p>
 		<p class="danger" id="green">Stock: 
 			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>
 			<span data-ng-show="$ctrl.product.stock <= 0" >Non disponible</span>
-		</p>
-		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>										
+		</p>										
 	</div>
-	
 </div>
