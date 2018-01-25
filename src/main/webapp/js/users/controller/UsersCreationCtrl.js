@@ -4,6 +4,6 @@ angular.module('users').controller('UsersCreationCtrl',
 	$scope.user = undefined;
 	
 	$scope.create = function(user){
-		usersCreationSrv.create(user);
+ 		usersCreationSrv.create(user);
 	};
 }]);
