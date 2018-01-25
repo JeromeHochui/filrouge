@@ -51,6 +51,13 @@
 	border: solid 1px black;
 }
 
+.miniature-biere {
+	height: 250px;
+	border: solid 1px black;
+}
+
+
+
 footer{
 	background-color: #493f56;
 	color: white;

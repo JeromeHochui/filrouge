@@ -1,26 +1,18 @@
 <div>
-	<h1 class="text-center"><span ng-bind="product.productName"></span></h1>
+	<div class="row col-md-10">
+		<h1 class="text-center"><span ng-bind="product.productName"></span></h1>
 		<hr width="75%" color="black">
-		<div class="row">
-			<div class="col-md-2 col-md-offset-3">
-				<img class="img-responsive center-block" src="../pictures/blanche/Blanche Hainaut.jpg" alt="Second Slide">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-3">
+					<img class="img-responsive center-block" src="{{product.pathPicture}}" alt="Second Slide">
+				</div>
+				<div class="col-md-3">
+					<h2>Description du produit</h2>
+					<p>
+						<span ng-bind="product.description"></span>
+					</p>
+				</div>
 			</div>
-			<div class="col-md-3">
-				<h2>Description du produit</h2>
-				<p>
-					<span ng-bind="product.description"></span>
-				</p>
-			</div>
-			<div class="col-md-1 product-image">
-				<h2 class="text-center red"><span ng-bind="product.price"></span>€</h2>
-				<h4 class="text-center" id="green">En stock</h4>
-				<h4 class="text-center">Quantité :</h4>
-				<form>
-					<input type="number" data-ng-model="quantity" name="quantity" min="0" max="999">
-					<input class="text-center" type="submit" data-ng-click="addToBasket(product, quantity)" value="Ajouter au panier">
-				</form>
-			</div>
-		</div>
 		<hr width="75%" color="black">
 		<div class="row">
 			<div class="col-md-3 col-md-offset-5">
@@ -32,4 +24,14 @@
 				<p><strong>Poids net en g</strong>: <span ng-bind="product.gWeight"></span></p>
 			</div>
 		</div>
+	</div>
+	<div class="col-md-2 product-image">
+		<h2 class="text-center red"><span ng-bind="product.price"></span>€</h2>
+		<h4 class="text-center" id="green">En stock</h4>
+		<h4 class="text-center">Quantité :</h4>
+		<form>
+			<input type="number" data-ng-model="quantity" name="quantity" min="0" max="999">
+			<input class="text-center" type="submit" data-ng-click="addToBasket(product, quantity)" value="Ajouter au panier">
+		</form>
+	</div>
 </div>

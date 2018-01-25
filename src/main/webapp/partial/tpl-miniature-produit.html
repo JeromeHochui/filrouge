@@ -1,11 +1,11 @@
-<div class="row">
-	<div class="col-lg-6 ">				
+<div class="col-md-4 miniature-biere">
+	<div class="col-md-6 ">				
 		<img alt="bière" class=img-responsive data-ng-src="{{$ctrl.product.pathPicture}}">
 	</div>
-	<div class="col-lg-6 row">						
-		<a class="col-lg-12" href="#"><h3>{{$ctrl.product.productName}}</h3></a>						
-		<a class="col-lg-12" href="#"><p>Désactiver</p></a>
-		<a class="col-lg-12" href="#"><p>Modifier</p></a>
+	<div class="col-md-6 row">						
+		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>						
+		<a class="col-xs-12" href="#"><p>Désactiver</p></a>
+		<a class="col-xs-12" href="#"><p>Modifier</p></a>
 		<p class="danger" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</p>
 		<p class="danger" id="green">Stock: 
 			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>

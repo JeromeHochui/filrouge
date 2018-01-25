@@ -34,6 +34,12 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 	
+	public void multipleCreate(List<Product> list) {
+		for (Product p : list) {
+			create(p);
+		}
+	}
+	
 	public void update(Product product) {
 		repository.saveAndFlush(product);
 	}
@@ -55,7 +61,7 @@ public class ProductService {
 	}
 	
 	public void store(MultipartFile file, Product product) {
-		product.setPathpicture(file.getOriginalFilename());
+		product.setPathPicture(file.getOriginalFilename());
 		repository.saveAndFlush(product);
 	}
 }

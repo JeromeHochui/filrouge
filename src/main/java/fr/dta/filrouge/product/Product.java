@@ -76,7 +76,7 @@ public class Product implements Serializable {
 
 	public Product() {}
 	
-	public Product (String productName, Float price, Integer clVolume, Integer gWeight, Float alcoholPercentage, String container, Boolean active, String description, String path_picture) {
+	public Product (String productName, Float price, Integer clVolume, Integer gWeight, Float alcoholPercentage, String container, Boolean active, String description, String pathPicture) {
 		this.productName = productName;
 		this.price = price;
 		this.clVolume = clVolume;
@@ -84,7 +84,7 @@ public class Product implements Serializable {
 		this.alcoholPercentage = alcoholPercentage;
 		this.active=active;
 		this.description=description;
-		this.pathPicture=path_picture;
+		this.pathPicture=pathPicture;
 	}
 	
 	// Getters and Setters
@@ -114,7 +114,7 @@ public class Product implements Serializable {
 	public static long getSerialversionuid() {return serialVersionUID;}
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
-	public String getPathpicture() {return pathPicture;}
-	public void setPathpicture(String path_picture) {this.pathPicture = path_picture;}
+	public String getPathPicture() {return pathPicture;}
+	public void setPathPicture(String pathPicture) {this.pathPicture = pathPicture;}
 
 }
