@@ -2,12 +2,13 @@
  * 
  */
 angular.module('orders').controller('OrdersBasketCtrl',
-		['$scope', '$rootScope', '$location', 'titre', 'ordersBasketSrv', function($scope, $rootScope, $location, titre, ordersBasketSrv){
+		['$scope', '$rootScope', '$location', '$cookies', 'titre', 'ordersBasketSrv', function($scope, $rootScope, $location, $cookies, titre, ordersBasketSrv){
 	
 	$scope.basket = [];
 	$rootScope.titre = titre.libelle;
 	ordersBasketSrv.initialiser();
 	$scope.basket = ordersBasketSrv.getBasket();
+	//$cookies = ordersBasketSrv.updateBasketCookies();
 	
 	function calculPrixTotal(){
 		$scope.totalPrice = 0;
