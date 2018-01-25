@@ -41,12 +41,12 @@ angular.module('products').service("productSrv", ['$http', function($http){
 		
 	}
 	
-	this.delete = function(data){
-		var promiseDelete = $http.post('/api/product/delete', data)
+	this.remove = function(id){
+		var promiseDelete = $http.delete('/api/product/delete/'+id)
 		return promiseDelete.then(function(response){
-			return response.data;
+			console.log("productSrv: le produit a ete supprime");
 		}, function(){
-			return {};
+			console.log("productSrv: le produit n'a pas ete supprime");;
 		})
 	}
 	
@@ -67,10 +67,7 @@ angular.module('products').service("productSrv", ['$http', function($http){
 			});
 				return getType;
 			}
-		
-	
-	
-	
+
 }]);
 
 

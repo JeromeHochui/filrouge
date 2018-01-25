@@ -69,6 +69,14 @@ angular.module('app').config(function($routeProvider){
 		}
 	
 	
+	}).when('/delete/:id', {	// Route pour la suppression d'un produit
+		templateUrl : './partial/tpl-delete-product.html',	// Template
+		controller : 'DeleteProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Suppression de produit'}} // Titre de la page
+		}
+	
+	
 	});
 	$routeProvider.otherwise({	// Route par défaut
 		redirectTo : '/accueil'
