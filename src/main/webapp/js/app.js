@@ -63,7 +63,7 @@ angular.module('app').config(function($routeProvider){
 	
 	});
 	$routeProvider.otherwise({	// Route par défaut
-		redirectTo : '/'
+		redirectTo : '/accueil'
 	})
 	
 	;

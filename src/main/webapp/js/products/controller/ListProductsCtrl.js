@@ -1,4 +1,5 @@
-angular.module('products').controller('ListProductsCtrl', ['$scope', '$rootScope', '$routeParams', 'productSrv', function($scope, $rootScope, $routeParams, productSrv){
+angular.module('products').controller('ListProductsCtrl', ['$scope', '$rootScope', '$routeParams', 'productSrv', 'titre', function($scope, $rootScope, $routeParams, productSrv, titre){
+	
 	$rootScope.titre = titre.libelle;
 	$scope.list = [];
 	

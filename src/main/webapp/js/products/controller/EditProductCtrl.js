@@ -1,4 +1,4 @@
-angular.module('products').controller('EditProductCtrl', ['$scope', '$routeParams', 'productSrv', function($scope, $routeParams, productSrv){
+angular.module('products').controller('EditProductCtrl', ['$scope', '$routeParams', 'productSrv', 'titre', function($scope, $routeParams, productSrv, titre){
 	
 	$scope.product = undefined;
 	var id = $routeParams.id;

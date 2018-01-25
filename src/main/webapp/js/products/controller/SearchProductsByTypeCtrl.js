@@ -1,4 +1,4 @@
-angular.module('products').controller('searchProductsByTypeCtrl', ['$scope', '$routeParams', 'productSrv', function($scope, $routeParams, productSrv){
+angular.module('products').controller('searchProductsByTypeCtrl', ['$scope', '$routeParams', 'productSrv', 'titre', function($scope, $routeParams, productSrv, titre){
 
 	$scope.searchProductByType = [];
 	var type = $routeParams.type;
