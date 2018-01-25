@@ -10,6 +10,8 @@
 		<p class="danger" id="green">Stock: 
 			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>
 			<span data-ng-show="$ctrl.product.stock <= 0" >Non disponible</span>
-		</p>										
+		</p>
+		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>										
 	</div>
+	
 </div>

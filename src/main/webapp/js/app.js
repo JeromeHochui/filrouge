@@ -3,7 +3,8 @@
  */
 
 // Déclaration du module
-angular.module('app', ['ngRoute', 'ngCookies', 'users', 'products', 'orders']);
+
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies', 'users', 'products', 'orders']);
 
 angular.module('app').config(function($routeProvider){
 	$routeProvider.when('/connection', {	// Route pour la page de connexion
