@@ -16,8 +16,8 @@
 				<h4 class="text-center" id="green">En stock</h4>
 				<h4 class="text-center">Quantité :</h4>
 				<form>
-					<input type="number" name="quantity" min="0" max="999">
-					<input class="text-center" type="submit" value="Ajouter au panier">
+					<input type="number" data-ng-model="quantity" name="quantity" min="0" max="999">
+					<input class="text-center" type="submit" data-ng-click="addToBasket(product, quantity)" value="Ajouter au panier">
 				</form>
 			</div>
 		</div>

@@ -12,12 +12,22 @@ angular.module('orders').controller('OrdersBasketCtrl',
 	function calculPrixTotal(){
 		$scope.totalPrice = 0;
 		angular.forEach($scope.basket, function(value, key){
-			$scope.totalPrice += value.quantity;
+			$scope.totalPrice += (value.quantity * value.product.price);
 		})
 	}
 	calculPrixTotal();
 	
+	function calculQuantityTotal(){
+		$scope.totalQuantity = 0;
+		angular.forEach($scope.basket, function(value, key){
+			$scope.totalQuantity += value.quantity;
+		})
+	}
+	calculQuantityTotal();
+	
 	$scope.removeFromBasket = function(productId){
 		$scope.basket = ordersBasketSrv.removeFromBasket(productId);
+		calculPrixTotal();
+		calculQuantityTotal();
 	}
 }]);
