@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.dta.filrouge.exceptions.NotDeletableProductException;
 import fr.dta.filrouge.exceptions.NotFoundException;
 
 @RestController
@@ -66,7 +67,9 @@ public class ProductController {
 	@RequestMapping(path = "delete/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void delete (@PathVariable Long id) {		
-		
+		if ( !service.delete(id) ) {
+			throw new NotDeletableProductException();
+		}
 	}
 	
 	@CrossOrigin
