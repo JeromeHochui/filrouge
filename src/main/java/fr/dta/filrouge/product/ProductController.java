@@ -34,6 +34,8 @@ public class ProductController {
 							@RequestParam(value="productName", required=false) String productName, 
 							@RequestParam(value="type",required=false) Type type) {
 		
+		
+		
 		List<Product> product = service.getByCriteria(productName, id, type);
 		
 		if(product == null) {

@@ -1,6 +1,9 @@
 <div class="col-md-4 miniature-biere">
-	<div class="col-md-6 ">				
+	<div class="col-md-6 ">
+		<br>
 		<img alt="bière" class=img-responsive data-ng-src="{{$ctrl.product.pathPicture}}">
+		<br>
+		
 	</div>
 	<div class="col-md-6 row">						
 		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>						
@@ -11,7 +14,8 @@
 			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>
 			<span data-ng-show="$ctrl.product.stock <= 0" >Non disponible</span>
 		</p>
-		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>										
+		
+		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>
 	</div>
 	
 </div>

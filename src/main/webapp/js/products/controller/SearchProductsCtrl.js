@@ -3,6 +3,8 @@ angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routePa
 	$scope.searchProduct = [];
 	var name = $routeParams.name;	
 	
+	$scope.mini = true;
+	
 	productSrv.searchByName(name).then(function(data){
 		$scope.searchProduct = data;
 		
