@@ -6,6 +6,7 @@ angular.module('products').controller('SearchProductsCtrl', ['$scope', '$routePa
 	productSrv.searchByName(name).then(function(data){
 		$scope.searchProduct = data;
 		
+		
 	});
 	
 	

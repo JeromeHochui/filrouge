@@ -38,6 +38,17 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 	
+	public boolean delete(Long id) {
+		Product productToDelete = getById(id);
+		Hibernate.initialize(productToDelete.getQuantities());
+		if (productToDelete.getQuantities().isEmpty()) {
+			repository.delete(productToDelete);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public void desactivateActivate(Product product) {	
 		product.setActive(!product.getActive());
 		repository.saveAndFlush(product);
@@ -48,4 +59,3 @@ public class ProductService {
 		repository.saveAndFlush(product);
 	}
 }
-

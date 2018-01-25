@@ -15,7 +15,7 @@ angular.module('app').config(function($routeProvider){
 	})
 	.when('/accueil', {
 		templateUrl : './partial/tpl-catalogue.html',	// Template
-		controller : 'listProductController',	// Controller
+		controller : 'ListProductsCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Accueil'}} // Titre de la page
 		}
@@ -45,10 +45,22 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Recherche'}} // Titre de la page
 		}
+	
+	
+	}).when('/type/:type', {	// Route pour la recherche (pour le moment que par nom)
+		templateUrl : './partial/tpl-search-type.html',	// Template
+		controller : 'searchProductsByTypeCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Recherche par type'}} // Titre de la page
+		}
+	
+	
 	});
 	$routeProvider.otherwise({	// Route par défaut
 		redirectTo : '/'
-	});
+	})
+	
+	;
 });
 /*
  * Déclaration des routes

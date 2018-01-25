@@ -50,15 +50,28 @@ angular.module('products').service("productSrv", ['$http', function($http){
 		})
 	}
 	
-	this.search = function(data){
-		var promiseSearch = $http.get('/api/product/search?name='+name);
-		return promiseSearch.then(function(response){
-			return response.data;
-		}, function(){
-			return {};
-		})
+	this.searchByName = function(name){
 		
-	}
+		var getByName = $http.get('/api/product/search?productName='+name)
+			.then(function(response){
+				return response.data;
+			});
+				return getByName;
+			}
+	
+	this.searchByType = function(type){
+		
+		var getType = $http.get('api/product/search?type='+type)
+			.then(function(response){
+				return response.data;
+			});
+				return getType;
+			}
+		
+	
 	
 	
 }]);
+
+
+
