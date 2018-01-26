@@ -13,8 +13,8 @@ angular.module('products').controller('EditProductCtrl', ['$scope', '$routeParam
 		productSrv.edit($scope.product).then(function(dataEdit){	
 			
 			$scope.product = dataEdit;
-			console.log('Editproduct ctrl '+$scope.product);
-			$location.path('/catalogue/'+id);
+			console.log('Editproduct ctrl '+$scope.product);			
+			$scope.message = true;
 			
 			
 		});
