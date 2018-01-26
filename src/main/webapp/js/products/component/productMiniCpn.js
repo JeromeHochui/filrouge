@@ -13,6 +13,7 @@ angular.module('products').component('productMini', {
 	bindings: {
 		product: "=",
 		quantity: "=",
-		mini: "="
+		mini: "=",
+		user: "="
 	}	
 });

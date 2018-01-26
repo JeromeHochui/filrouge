@@ -7,14 +7,11 @@ angular.module('app').component('myHeader', {
 controller: ['ordersBasketSrv', 'connectionSrv', '$rootScope', function( ordersBasketSrv, connectionSrv, $rootScope){
 		
 		this.logout = function(){
-			connectionSrv.logout().then(function () {
-				connectionSrv.getUser().then(function (response) {
-					console.log('user deco', response);
-				}, function (reason) {
-					console.log('erreur', reason);
-				});
+			connectionSrv.logout().then(function (response) {
+				$rootScope.user = undefined;
+			}, function(reason){
+				console.log('error', reason);
 			});
-			$rootScope.user = undefined;
 		}
 	}],
 	bindings:		{
