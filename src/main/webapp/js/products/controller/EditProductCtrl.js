@@ -10,13 +10,14 @@ angular.module('products').controller('EditProductCtrl', ['$scope', '$routeParam
 	});
 
 	$scope.edit =function(){
-		productSrv.edit($scope.product).then(function(dataEdit){	
+		productSrv.edit($scope.product).then(function(dataEdit){				
+			$scope.product = dataEdit;			
+			$scope.message = true;	
 			
-			$scope.product = dataEdit;
-			console.log('Editproduct ctrl '+$scope.product);			
-			$scope.message = true;
-			
+				
 			
 		});
 	}
 	}]);
+
+
