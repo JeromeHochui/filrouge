@@ -18,7 +18,7 @@ public class ProductRepositoryImpl extends AbstractJpaRepository<Product> implem
 	public List<Product> findByCriteria(String productName, Long id, Type type) {
 		Criteria query = getSession().createCriteria(getEntityClass());
 		if(!StringUtils.isEmpty(productName)) {
-			query.add(Restrictions.like("productName", "%"+productName+"%"));
+			query.add(Restrictions.ilike("productName", "%"+productName+"%"));
 		}
 		
 		if(id != null) {
