@@ -13,13 +13,19 @@
 	<div class="col-md-2">
 		<ul class="nav nav-pills nav-stacked">
 			<li>
-				<div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="dropDownMenu">Mon compte
-					<span class="caret"></span></button>
-					<ul class="dropdown-menu">
-						<li class="active"><a href="#">Mes commandes</a></li>
-						<li><a href="#">Mes commandes</a></li>
-						<li><a href="#">Deconnexion</a></li>
+				<div data-uib-dropdown>
+					<a class="btn btn-primary " data-toggle="dropdown" id="dropDownMenu" data-uib-dropdown-toggle>
+					<span data-ng-show="$ctrl.user != undefined" >Mon Compte</span>
+					<span data-ng-show="$ctrl.user == undefined" >Options</span>
+					<span class="caret"></span></a>
+					<ul data-uib-dropdown-menu>
+						<li ><a data-ng-show="$ctrl.user != undefined" href="#!/">Mon profil</a></li><!-- Lien pour le profil à ajouter -->
+						<li ><a href="#!/panier">Mon panier</a></li><!-- Lien du panier -->
+						<li data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="divider"></li>
+						<li ><a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" href="#!/">Administration</a></li>
+						<li class="divider"></li>
+						<li><a data-ng-show="$ctrl.user != undefined" href="#!/accueil" data-ng-click="$ctrl.logout()">Deconnexion</a></li>
+						<li><a data-ng-show="$ctrl.user == undefined" href="#!/connection" >Connexion</a></li>
 					</ul>
 				</div>
 			</li>

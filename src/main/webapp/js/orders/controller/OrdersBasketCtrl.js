@@ -6,9 +6,7 @@ angular.module('orders').controller('OrdersBasketCtrl',
 	
 	$scope.basket = [];
 	$rootScope.titre = titre.libelle;
-	ordersBasketSrv.initialiser();
 	$scope.basket = ordersBasketSrv.getBasket();
-	//$cookies = ordersBasketSrv.updateBasketCookies();
 	
 	function calculPrixTotal(){
 		$scope.totalPrice = 0;

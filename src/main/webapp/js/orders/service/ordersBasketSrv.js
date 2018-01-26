@@ -7,35 +7,6 @@ angular.module('orders').factory('ordersBasketSrv',
 				
 	var basket = []; // contient une liste de : {quantity, product}
 	
-	function initialise(){
-		var produit = { id: 1,
-				 productName:'kronembourg',
-				 price:15,
-				 clVolume: 15,
-				 gWeight: 15,
-				 alcoholercentage:123,
-				 stock:105,
-				 container:'Bottle',
-				 active:false,
-				 description:'une très bonne bière',
-				 type:'Brune'};
-		var produit2 = { id: 2,
-				 productName:'Heineken',
-				 price:10,
-				 clVolume: 33,
-				 gWeight: 33,
-				 alcoholercentage:10,
-				 stock:52,
-				 container:'Bottle',
-				 active:false,
-				 description:'une très bonne bière',
-				 type:'Blanche'};
-		var couple = {product: produit, quantity: 2};
-		var couple2 = {product: produit2, quantity: 3};
-		basket.push(couple);
-		basket.push(couple2);
-	};
-	
 	
 	/*
 	 * Fonction pour valider la quantité d'un produit demandé pour la commande
@@ -54,17 +25,16 @@ angular.module('orders').factory('ordersBasketSrv',
 	
 	 function updateBasketCookies() {
 		var basketsCookie = {};
+		console.log('avant forEach', basket);
 		angular.forEach(basket, function(item, key) {
 			basketsCookie[key] = item;
+			console.log('key:', key, ' : ', item);
 		});
 		$cookies.putObject('basket', basketsCookie);
+		console.log('updateCookie', basketsCookie);
 	}
 	
 	return {
-		initialiser : function () {
-			initialise();
-			updateBasketCookies();
-		},
 		
 		addToBasket : function(product, quantity){
 			if (product !== undefined) {
@@ -88,9 +58,11 @@ angular.module('orders').factory('ordersBasketSrv',
 			var basketsCookie;
 			if(basket.length !== undefined) {
 				basketsCookie = $cookies.getObject('basket');
+				console.log('basketsCookie', basketsCookie);
 				if(basketsCookie) {
 					angular.forEach(basketsCookie, function(item, key) {
 						basket[key] = item;
+						console.log('key:', key, ' : ', item);
 					})
 				}
 			}
@@ -102,7 +74,7 @@ angular.module('orders').factory('ordersBasketSrv',
 			angular.forEach(basket, function(value, key){
 				if(value.product.id == productId){
 					//Avec splice() on peut enlever à l'index/index+1 un item de la liste
-					basket.splice(key, key+1);
+					basket.splice(key, 1);
 				}
 			});
 			updateBasketCookies();

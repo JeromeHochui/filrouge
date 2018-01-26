@@ -17,6 +17,13 @@ angular.module('users').factory('connectionSrv',
 		
 		getUser : function () {
 			return $http.get('/api/users/connected-user');
+		},
+		
+		logout : function () {
+			$http.get('/logout').then(function(response){
+				console.log('logout');
+			});
 		}
+
 	}
 }]);
