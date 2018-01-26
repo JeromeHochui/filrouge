@@ -2,9 +2,9 @@
 <span class="text-danger" ng-show="formProduct.$invalid">Les champs ne sont pas corrects, vous ne pouvez pas confirmer l'édition.</span>
 <span class="text-success" ng-show="formProduct.$valid">Tous les champs sont corrects vous pouvez confirmer !</span>
 <div class="alert alert-success" ng-show="message">Modifications enregistrées. <a href="#!/catalogue/{{product.id}}">Voir la page du produit modifié.</a></div>
-
-<form class="form-group">	
-		<label for="inputMark">Type de bière: </label> 
+ 
+<form class="form-group" name="formProduct">	
+		<label for="inputMark">Type de bi�re: </label> 
 		<select	class="form-control form-control-sm" ng-model="product.type">
 			<option selected="selected" value="{{product.type}}" >{{product.type}}</option>
 			<option>Blonde</option>
@@ -64,7 +64,7 @@
 		<span class="text-danger" ng-show="formProduct.description.$error.required">
    			<p>Champ requis</p>
 		</span>	
-
+		
 		<label for="inputDescription">Stock: </label> 
 		<input	type="number" class="form-control" ng-model="product.stock" min="0" max="1000" required min="0"> 
 		<span class="text-danger" ng-show="formProduct.weight.$error.min">
