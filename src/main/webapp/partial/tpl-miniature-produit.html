@@ -1,13 +1,12 @@
 <div class="col-md-4 miniature-biere">
-	<div class="col-md-6 ">
+	<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>
+	<div class="col-xs-4 col-md-6">
 		<br>
 		<img alt="bière" class=img-responsive data-ng-src="{{$ctrl.product.pathPicture}}">
 		<br>
 		
 	</div>
-	<div class="col-md-6 row">						
-		<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>
-		<p>{{$ctrl.product.active}}</p>						
+	<div class="col-xs-8 col-md-6 row">
 		<a  href="#!/" ng-click="activate()">Activer/désactiver</a>
 		<a class="col-xs-12" href="#!/edit/{{$ctrl.product.id}}"><p>Modifier</p></a>
 		<a class="col-xs-12" href="#!/delete/{{$ctrl.product.id}}"><p>Supprimer</p></a>

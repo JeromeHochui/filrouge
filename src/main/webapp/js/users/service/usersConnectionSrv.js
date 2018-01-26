@@ -10,12 +10,13 @@ angular.module('users').factory('connectionSrv',
 			$http.post('/authenticate', undefined, { params:{ username: username, password: password }})
 	            .then(function (response) {
 	                console.log('success', response);
-	            },
-	            function(reason){
+	            }, function(reason){
 	            	console.log('failure', reason);
-	            }
-	            );
-				
-			}
+	            });
+		},
+		
+		getUser : function () {
+			return $http.get('/api/users/connected-user');
+		}
 	}
 }]);
