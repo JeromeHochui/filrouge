@@ -2,18 +2,18 @@
 	<div >
 		<h1 class="text-center red"><span data-ng-bind="$ctrl.product.price"></span>&euro;</h1>
 		<p class="text-center" id="green" data-ng-if="$ctrl.product.active && $ctrl.product.stock > 0">En stock</p>
-		<p class="text-center" id="danger" data-ng-if="!$ctrl.product.active || $ctrl.product.stock = 0">Non disponible</p>
-		<p class="text-center">Quantité :</p>
+		<p class="text-center" id="danger" data-ng-if="!$ctrl.product.active || $ctrl.product.stock == 0">Non disponible</p>
+		<p class="text-center">QuantitÃ© :</p>
 	</div>
 	<form class="row">
 		<input type="number" class="col-md-8" data-ng-model="$ctrl.quantity" name="quantity" min="0" max="999">
-		<button class="text-center col-md-4 " data-ng-click="addToBasket($ctrl.product, $ctrl.quantity)" ><span class="glyphicon glyphicon-plus"></span></button>
+		<button class="text-center col-md-4 " data-ng-click="$ctrl.addToBasket($ctrl.product, $ctrl.quantity)" ><span class="glyphicon glyphicon-plus"></span></button>
 	</form>
 </div>
 
 <div data-ng-if="$ctrl.mini">
 	<form class="row">
 		<input type="number" class="col-md-8" data-ng-model="$ctrl.quantity" name="quantity" min="0" max="999">
-		<button class="text-center col-md-4 " data-ng-click="addToBasket($ctrl.product, $ctrl.quantity)" ><span class="glyphicon glyphicon-plus"></span></button>
+		<button class="text-center col-md-4 " data-ng-click="$ctrl.addToBasket($ctrl.product, $ctrl.quantity)" ><span class="glyphicon glyphicon-plus"></span></button>
 	</form>
 </div>

@@ -24,5 +24,6 @@ angular.module('users').factory('connectionSrv',
 				console.log('logout');
 			});
 		}
+
 	}
 }]);
