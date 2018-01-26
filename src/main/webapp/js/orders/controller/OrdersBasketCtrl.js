@@ -2,7 +2,7 @@
  * 
  */
 angular.module('orders').controller('OrdersBasketCtrl',
-		['$scope', '$rootScope', '$location', '$cookies', 'titre', 'ordersBasketSrv', function($scope, $rootScope, $location, $cookies, titre, ordersBasketSrv){
+		['$scope', '$rootScope', '$location', '$cookies', 'titre', 'ordersBasketSrv', 'ordersProductsSrv', function($scope, $rootScope, $location, $cookies, titre, ordersBasketSrv, orderProductsSrv){
 	
 	$scope.basket = [];
 	$rootScope.titre = titre.libelle;
@@ -28,5 +28,9 @@ angular.module('orders').controller('OrdersBasketCtrl',
 		$scope.basket = ordersBasketSrv.removeFromBasket(productId);
 		calculPrixTotal();
 		calculQuantityTotal();
+	}
+	
+	$scope.createCommand = function(orders){
+		
 	}
 }]);
