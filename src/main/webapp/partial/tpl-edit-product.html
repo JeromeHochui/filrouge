@@ -1,41 +1,80 @@
 
-<form class="form-group">
-	<div class="form-group">
-		<label for="inputMark">Type de bi�re: </label> 
+<span class="text-danger" ng-show="formProduct.$invalid">Les champs ne sont pas corrects, vous ne pouvez pas confirmer l'édition.</span>
+<span class="text-success" ng-show="formProduct.$valid">Tous les champs sont corrects vous pouvez confirmer !</span>
+<div class="alert alert-success" ng-show="message">Modifications enregistrées. <a href="#!/catalogue/{{product.id}}">Voir la page du produit modifié.</a></div>
+ 
+<form class="form-group" name="formProduct">	
+		<label for="inputMark">Type de bi�re: </label> 
 		<select	class="form-control form-control-sm" ng-model="product.type">
 			<option selected="selected" value="{{product.type}}" >{{product.type}}</option>
-			<option value="Blonde">Blonde</option>
-			<option value="Brune">Brune</option>
-			<option value="Ambree">Ambr�es</option>
-			<option value="Blanche">Blanche</option>
-			<option value="Noire">Noire</option>
+			<option>Blonde</option>
+			<option>Brune</option>
+			<option>Ambree</option>
+			<option>Blanche</option>
 		</select> 
 		<label for="inputMark">Type de contenant: </label> 
 		<select	class="form-control form-control-sm" ng-model="product.container" >
 			<option selected="selected" value="{{product.container}}">{{product.container}}</option>
-			<option value="Bottle">Bouteille</option>
-			<option value="Can">Can</option>
-			<option value="Barrel">F�t</option>
+			<option>Bottle</option>
+			<option>Can</option>
+			<option>Barrel</option>
 		</select> 
-		<label for="inputName">Nom de la bi�re: </label> 
-		<input type="text"	class="form-control" ng-model="product.productName"> 
-			<label for="inputVolume">Volume:</label> 
-			<input type="number" step="any" class="form-control" ng-model="product.clVolume"> 
-			<label	for="inputWeight">Poids: </label> 
-			<input type="number" step="any" class="form-control" ng-model="product.gWeight">
-			<label for="inputAlcool">Taux d'alcool: </label> 
-			<small id="emailHelp" class="form-text text-muted">En pourcentage.</small>
-		<input type="number" step="any" class="form-control" ng-model="product.alcoholPercentage">
-
-		<label for="inputDescription">Description: </label> 
-		<input	type="textarea" class="form-control" ng-model="product.description">
+		<label for="inputName">Nom de la bière: </label> 
+		<input required name ="beerName" type="text"	required class="form-control" placeholder="Nom de la bière" value="{{product.productName}}" ng-model="product.productName"> 
+		 <span class="text-danger" ng-show="formProduct.beerName.$error.required">
+   			<p>Champ requis</p>
+		</span>		
+    	 
+		<label for="inputVolume">Volume:</label> 
+		<input type="number" step="any" class="form-control" ng-model="product.clVolume" name="volume" min="0" max="1000" required>
+		<span class="text-danger" ng-show="formProduct.volume.$error.min">
+   			<p>Doit contenir au minimum 0</p>
+		</span>
+		<span class="text-danger" ng-show="formProduct.volume.$error.max">
+   			Doit contenir au maximum 1000
+		</span>  
+		
+		<label	for="inputWeight">Poids: </label> 
+		<input name="weight" type="number" step="any" class="form-control" ng-model="product.gWeight" min="0" max="1000" required>
+		<span class="text-danger" ng-show="formProduct.weight.$error.min">
+   			<p>Doit contenir au minimum 0</p>
+		</span>
+		<span class="text-danger" ng-show="formProduct.weight.$error.max">
+   			Doit contenir au maximum 1000
+		</span>  
+					
+		<label for="inputAlcool">Taux d'alcool: </label> 
+		<small id="emailHelp" class="form-text text-muted" >En pourcentage.</small>		
+		<input name="alcohol" type="number" step="any" class="form-control" ng-model="product.alcoholPercentage" min="1" max="70" required>
+		<span class="text-danger" ng-show="formProduct.alcohol.$error.min">
+   			<p>Le pourcentage doit être au minimum de 1%</p>
+		</span>
+		<span class="text-danger" ng-show="formProduct.alcohol.$error.max">
+   			<p>Le pourcentage doit être au maximum de 70%</p>
+		</span>
+		
+		<label>Prix: </label> 
+		<input	type="number" step="any" class="form-control" ng-model="product.price" required name="price" min="1">
+		<span class="text-danger" ng-show="formProduct.price.$error.min">
+   			<p>Le prix minimum est de 1€</p>
+		</span>
+		
+		<label>Description: </label> 
+		<input	name="description" type="textarea" class="form-control" ng-model="product.description" required>
+		<span class="text-danger" ng-show="formProduct.description.$error.required">
+   			<p>Champ requis</p>
+		</span>	
+		
 		<label for="inputDescription">Stock: </label> 
-		<input	type="number" class="form-control" ng-model="product.stock">  
+		<input	type="number" class="form-control" ng-model="product.stock" min="0" max="1000" required min="0"> 
+		<span class="text-danger" ng-show="formProduct.weight.$error.min">
+   			<p>Doit contenir au minimum 0</p>
+		</span>
+		 
 		<label for="inputFile">Image:</label>
 		<input type="text" class="form-control"	ng-model="product.pathpicture">
 		<input type="file" class="form-control" ng-model="product.pathpicture"> 
 		<br>
-
-		<button type="submit" ng-click="edit()" class="btn btn-primary">Valider</button>
-	</div>
+		<span ng-show="formProduct.$valid"><button type="submit" ng-click="edit()" class="btn btn-primary">Valider</button></span>
+		
 </form>

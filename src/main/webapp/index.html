@@ -33,24 +33,30 @@
 <script src="./js/users/users.js"></script>
 <script src="./js/users/component/userConnectionCpn.js"></script>
 <script src="./js/users/service/usersConnectionSrv.js"></script>
+<script src="./js/users/service/usersEditSrv.js"></script>
 <script src="./js/users/service/usersCreationSrv.js"></script>
 <script src="./js/users/controller/UsersConnectionCtrl.js"></script>
 <script src="./js/users/controller/UsersCreationCtrl.js"></script>
-<!-- <script src="./js/users/controller/UsersEditCtrl.js"></script> -->
+<script src="./js/users/controller/UsersEditCtrl.js"></script> 
 
 <script src="./js/users/directive/userCreationDir.js"></script>
 
 <!-- Import products -->
 <script src="./js/products/products.js"></script>
+
 <script src="./js/products/service/productSrv.js"></script>
+
 <script src="./js/products/controller/ProductCtrl.js"></script>
+<script src="./js/products/controller/CreateProductCtrl.js"></script>
 <script src="./js/products/controller/ListProductsCtrl.js"></script>
 <script src="./js/products/controller/SearchProductsCtrl.js"></script>
 <script src="./js/products/controller/EditProductCtrl.js"></script>
-<script src="./js/products/component/productMiniCpn.js"></script>
 <script src="./js/products/controller/SearchProductsByTypeCtrl.js"></script>
 <script src="./js/products/controller/ActivateProductCtrl.js"></script>
-<script src="./js/products/controller/ActivateProductCtrl.js"></script>
+
+<script src="./js/products/component/productMiniCpn.js"></script>
+
+
 
 <meta charset="UTF-8">
 <title>{{titre}}</title>
@@ -59,7 +65,7 @@
 <my-header user="user"></my-header>
 <main class="container">
 	
-	<my-nav></my-nav>
+	<my-nav user="user"></my-nav>
 	
 	<div data-ng-view></div>
 	
