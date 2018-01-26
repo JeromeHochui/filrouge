@@ -1,5 +1,6 @@
-angular.module('products').controller('CreateProductCtrl', ['$scope', '$routeParams', 'productSrv', '$location','titre', function($scope, $routeParams, productSrv, $location, titre){
+angular.module('products').controller('CreateProductCtrl', ['$scope','$rootScope', '$routeParams', 'productSrv', '$location','titre', function($scope, $rootScope,$routeParams, productSrv, $location, titre){
 	
+	$rootScope.titre = titre.libelle;
 	$scope.product = undefined;
 	
 	$scope.create = function(product){
