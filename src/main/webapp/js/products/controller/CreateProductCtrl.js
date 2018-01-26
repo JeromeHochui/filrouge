@@ -4,7 +4,9 @@ angular.module('products').controller('CreateProductCtrl', ['$scope','$rootScope
 	$scope.product = undefined;
 	
 	$scope.create = function(product){
+		product.active = false;
 		console.log(product)
 		productSrv.addOne(product);
+		$scope.message = true;
 	};
 }]);
