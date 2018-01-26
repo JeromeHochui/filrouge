@@ -1,19 +1,20 @@
 /**
  * 
  */
-angular.module('orders').service('ordersProductsSrv', ['$http', function ($http) {
+angular.module('orders').service('ordersProductsSrv', ['$http', '$cookies', function ($http, $cookies) {
 	
-	this.create = function(data){
-		var promiseCreate = $http.post('/api/orders/create', data)
-		return promiseCreate.then(function(response){
-			console.log(response.data);
-			return response.data;
-		}, function(){
-			return {};
-		})
-	}
+	var ordersProducts = [];
 	
-	function createCommand(){
+	function createReference(user){
 		
 	}
+	
+	this.createOrders = function(basket){
+		
+	}
+
+	function createOrdersProducts(orderProductList){
+		
+	}
+	
 }]);
