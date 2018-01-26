@@ -1,0 +1,40 @@
+
+<form class="form-group">
+	<div class="form-group">
+		<label for="inputMark">Type de bière: </label> 
+		<select	class="form-control form-control-sm" ng-model="product.type">
+			<option selected="selected" >{{product.type}}</option>
+			<option>Blonde</option>
+			<option>Brune</option>
+			<option>Ambree</option>
+			<option>Blanche</option>
+		</select> 
+		<label for="inputMark">Type de contenant: </label> 
+		<select	class="form-control form-control-sm" ng-model="product.container" >
+			<option selected="selected">{{product.container}}</option>
+			<option>Bottle</option>
+			<option>Can</option>
+			<option>Barrel</option>
+		</select> 
+		<label for="inputName">Nom de la bière: </label> 
+		<input type="text"	class="form-control" placeholder="Nom de la bière" ng-model="product.productName"> 
+			<label for="inputVolume">Volume:</label> 
+			<input type="number" step="any" class="form-control" placeholder="Volume" ng-model="product.clVolume" min="0" max="999"> 
+			<label	for="inputWeight">Poids: </label> 
+			<input type="number" step="any" class="form-control" placeholder="Poids de la bière" ng-model="product.gWeight" min="0" max="999">
+			<label for="inputAlcool">Taux d'alcool: </label> 
+			<small id="emailHelp" class="form-text text-muted">En pourcentage.</small>
+		<input type="number" step="any" class="form-control" placeholder="Taux d'alcool" ng-model="product.alcoholPercentage" min="0" max="100">
+
+		<label for="inputDescription">Description: </label> 
+		<input	type="textarea" class="form-control" placeholder="Description" ng-model="product.description">
+		<label for="inputDescription">Stock: </label> 
+		<input	type="number" class="form-control" placeholder="Description" ng-model="product.stock" min="0" max="999">  
+		<label for="inputFile">Image:</label>
+		<input type="text" class="form-control"	ng-model="product.pathpicture">
+		<input type="file"	class="form-control" ng-model="product.pathpicture"> 
+		<br>
+
+		<button type="submit" ng-click="create(product)" class="btn btn-primary">Valider</button>
+	</div>
+</form>

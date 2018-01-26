@@ -58,6 +58,12 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Recherche par type'}} // Titre de la page
 		}
+	}).when('/creationproduit', {	// Route pour la page de creation de compte
+		templateUrl : './partial/tpl-create-product.html',	// Template
+		controller : 'CreateProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Créer un produit'}} // Titre de la page
+		}
 	}).when('/edit/:id', {	// Route pour la recherche (pour le moment que par nom)
 		templateUrl : './partial/tpl-edit-product.html',	// Template
 		controller : 'EditProductCtrl',	// Controller
