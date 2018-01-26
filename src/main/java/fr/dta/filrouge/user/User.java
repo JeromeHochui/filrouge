@@ -126,8 +126,8 @@ public class User implements Serializable{
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
 
-	public boolean isAdmin() {return isAdmin;}
-	public void setAdmin(boolean admin) {this.isAdmin = admin;}
+	public boolean getIsAdmin() {return isAdmin;}
+	public void setIsAdmin(boolean admin) {this.isAdmin = admin;}
 
 	public Date getBirthdate() {return birthdate;}
 	public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}

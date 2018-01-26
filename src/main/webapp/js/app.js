@@ -38,6 +38,12 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Creation Client'}} // Titre de la page
 		}
+	}).when('/modificationcompte', {	// Route pour la page de creation de compte
+		templateUrl : './partial/tpl-modification-compte.html',	// Template
+		controller : 'UsersEditCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Modification du compte'}} // Titre de la page
+		}
 	})
 	.when('/panier', {
 		templateUrl : './partial/tpl-basket.html',	// Template
