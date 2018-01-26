@@ -1,0 +1,16 @@
+<div class="alert alert-success" ng-show="message">Modifications enregistrées</div>
+
+<form class="form-group">
+  	<label>Adresse mail: </label>
+	<p class="blue">{{user.email}}</p>	
+	<label >Nom: </label>  
+	<input type="text" class="form-control" placeholder="name" ng-model="user.lastname">
+	<label >Prénom: </label> 		
+	<input type="text"	class="form-control" ng-model="user.firstname"> 		
+	<label >Date d'anniversaire: </label> 		
+	<input type="date"	class="form-control" ng-model="user.birthdate">
+	<label >Numéro de téléphone: </label> 		
+	<input type="text"	class="form-control" ng-model="user.phone">
+	</br>			
+	<button type="submit" ng-click="editUser()" class="btn btn-primary">Valider les modifications</button>
+</form>
