@@ -7,9 +7,9 @@
 		
 	</div>
 	<div class="col-xs-8 col-md-6 row">
-		<a  href="#!/" ng-click="activate()">Activer/désactiver</a>
-		<a class="col-xs-12" href="#!/edit/{{$ctrl.product.id}}"><p>Modifier</p></a>
-		<a class="col-xs-12" href="#!/delete/{{$ctrl.product.id}}"><p>Supprimer</p></a>
+		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" href="#!/" ng-click="activate()">Activer/désactiver</a>
+		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="col-xs-12" href="#!/edit/{{$ctrl.product.id}}"><p>Modifier</p></a>
+		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="col-xs-12" href="#!/delete/{{$ctrl.product.id}}"><p>Supprimer</p></a>
 		<p class="danger" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</p>
 		<p class="danger" id="green">Stock: 
 			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>
