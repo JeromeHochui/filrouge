@@ -66,8 +66,8 @@
 		</span>	
 		
 		<label for="inputDescription">Stock: </label> 
-		<input	type="number" class="form-control" ng-model="product.stock" min="0" max="1000" required min="0"> 
-		<span class="text-danger" ng-show="formProduct.weight.$error.min">
+		<input	name="stock" type="number" class="form-control" ng-model="product.stock" min="0" max="1000" required min="0"> 
+		<span class="text-danger" ng-show="formProduct.stock.$error.min">
    			<p>Doit contenir au minimum 0</p>
 		</span>
 		 
