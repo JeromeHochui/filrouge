@@ -4,5 +4,7 @@
 
 angular.module('app').component('myNav', {
 	templateUrl:	'./partial/tpl-nav.html',
-	bindings:		{}
+	bindings:		{
+		user: "="
+	}
 });

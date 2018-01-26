@@ -15,7 +15,7 @@ angular.module('app').config(function($routeProvider){
 		}
 	})
 	.when('/accueil', {
-		templateUrl : './partial/tpl-catalogue.html',	// Template
+		templateUrl : './partial/accueil.html',	// Template
 		controller : 'ListProductsCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Accueil'}} // Titre de la page
@@ -32,11 +32,11 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Produit'}} // Titre de la page
 		}
-	}).when('/creation', {	// Route pour la page de creation de compte
+	}).when('/inscription', {	// Route pour la page de creation de compte
 		templateUrl : './partial/tpl-creation-compte.html',	// Template
 		controller : 'UsersCreationCtrl',	// Controller
 		resolve : {
-			titre: function(){return {libelle : 'Creation Client'}} // Titre de la page
+			titre: function(){return {libelle : 'Creation'}} // Titre de la page
 		}
 	})
 	.when('/panier', {
@@ -52,29 +52,29 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Recherche'}} // Titre de la page
 		}
-	}).when('/type/:type', {	// Route pour la recherche (pour le moment que par nom)
+	}).when('/type/:type', {	// Route pour la recherche par type
 		templateUrl : './partial/tpl-search-type.html',	// Template
 		controller : 'SearchProductsByTypeCtrl',	// Controller
 		resolve : {
-			titre: function(){return {libelle : 'Recherche par type'}} // Titre de la page
+			titre: function(){return {libelle : 'Recherche'}} // Titre de la page
 		}
-	}).when('/edit/:id', {	// Route pour la recherche (pour le moment que par nom)
+	}).when('/edit/:id', {	// Route pour l'édition d'un produit
 		templateUrl : './partial/tpl-edit-product.html',	// Template
 		controller : 'EditProductCtrl',	// Controller
 		resolve : {
-			titre: function(){return {libelle : 'Editer un produit'}} // Titre de la page
+			titre: function(){return {libelle : 'Edition'}} // Titre de la page
 		}
 	}).when('/delete/:id', {	// Route pour la suppression d'un produit
 		templateUrl : './partial/tpl-delete-product.html',	// Template
 		controller : 'DeleteProductCtrl',	// Controller
 		resolve : {
-			titre: function(){return {libelle : 'Suppression de produit'}} // Titre de la page
+			titre: function(){return {libelle : 'Suppression'}} // Titre de la page
 		}
-	}).when('/activate', {	// Route pour la recherche (pour le moment que par nom)
+	}).when('/activate/', {	// Route pour l'activation/désactivation
 		templateUrl : './partial/tpl-catalogue.html',	// Template
 		controller : 'ActivateProductCtrl',	// Controller
 		resolve : {
-			titre: function(){return {libelle : 'Activer/désactiver un produit un produit'}} // Titre de la page
+			titre: function(){return {libelle : 'Activer/désactiver'}} // Titre de la page
 		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
