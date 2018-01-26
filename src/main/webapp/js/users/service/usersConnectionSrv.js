@@ -7,7 +7,7 @@ angular.module('users').factory('connectionSrv',
 
 	return {
 		connect : function(username, password){
-			$http.post('/authenticate', undefined, { params:{ username: username, password: password }})
+			return $http.post('/authenticate', undefined, { params:{ username: username, password: password }})
 	            .then(function (response) {
 	                console.log('success', response);
 	            }, function(reason){
@@ -20,7 +20,7 @@ angular.module('users').factory('connectionSrv',
 		},
 		
 		logout : function () {
-			$http.get('/logout').then(function(response){
+			return $http.get('/logout').then(function(response){
 				console.log('logout');
 			});
 		}
