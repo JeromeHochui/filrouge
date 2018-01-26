@@ -9,7 +9,7 @@ angular.module('app').component('ajoutPanier', {
 		this.addToBasket = function(product, quantity){
 			ordersBasketSrv.addToBasket(product, quantity);
 			console.log('addToBasket', product);
-			$location.path('#!/panier');
+			//$location.path('#!/panier');
 		}
 	}],
 	bindings: {

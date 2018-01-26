@@ -1,14 +1,8 @@
-<h1 class="text-center background-title">Notre catalogue complet</h1>
-<div class="" > <!-- Faire un ng repeat -->
-	<a ng-repeat="product in list" href="#!/catalogue/{{product.id}}">
-		<!-- 
-		<div class="product-image">
-			<img class="img-responsive center-block" src="../pictures/blanche/Blanche Hainaut.jpg" alt="Second Slide">
-			<h3 class="text-center"><span ng-bind="product.productName"></span></h3>
-			<h4 class="text-center red"><span ng-bind="product.price"></span>€</h4>
-		</div>
-		 -->
+<div>
+	<h1 class="text-center background-title">Notre catalogue complet</h1>
+</div>
+<div class="row">
+	<a class="col-md-4" ng-repeat="product in list" href="#!/catalogue/{{product.id}}">
 		 <product-mini product="product" mini="mini"></product-mini>
-		 
 	</a>
 </div>
