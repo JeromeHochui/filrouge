@@ -56,8 +56,6 @@
 	border: solid 1px black;
 }
 
-
-
 footer{
 	background-color: #493f56;
 	color: white;
@@ -75,13 +73,6 @@ footer .copyright {
 hr {
   width: 250px;
         height: 87px;
-}
-
-.messages {
-  font-size: smaller;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  color: red;
 }
 
 .ng-invalid {
