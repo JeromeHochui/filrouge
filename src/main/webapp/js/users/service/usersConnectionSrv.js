@@ -13,9 +13,7 @@ angular.module('users').factory('connectionSrv',
 	            },
 	            function(reason){
 	            	console.log('failure', reason);
-	            }
-	            );
-				
+	            });
 			}
 	}
 }]);

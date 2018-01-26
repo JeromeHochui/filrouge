@@ -7,5 +7,6 @@ angular.module('users').controller('UsersConnectionCtrl',
 	
 	$scope.connect = function(user){
 		connectionSrv.connect(user.email, user.password);
+		$location('/');
 	};
 }]);

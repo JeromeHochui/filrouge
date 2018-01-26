@@ -11,7 +11,7 @@
 			<div class="col-md-5" >
 				<span>{{item.product.productName}}</span>
 			</div>
-			<div class="col-md-2"><span class="prix">{{item.product.price}} &euro;</span></div>
+			<div class="col-md-2"><span class="prix">{{item.product.price | number:2}} &euro;</span></div>
 			<div class="col-md-2"><span>{{item.quantity}}</span></div>
 			<div class="col-md-2"><span><button class="btn btn-default" data-ng-click="removeFromBasket(item.product.id)">Supprimer</button></span></div>
 		</div>
@@ -20,7 +20,8 @@
 	<div class="row col-md-2">
 		<br>
 		<span>Sous-total : ( {{totalQuantity}} article(s))</span>
-		<span>{{totalPrice}}&euro;</span>
+		<br>
+		<span>{{totalPrice | number:2}}&euro;</span>
 		<br>
 		<button type="submit" class="btn btn-default" data-ng-click="command()">Passer la commande</button>
 	</div>
