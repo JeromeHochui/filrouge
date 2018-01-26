@@ -38,6 +38,12 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Creation'}} // Titre de la page
 		}
+	}).when('/modificationcompte', {	// Route pour la page de creation de compte
+		templateUrl : './partial/tpl-modification-compte.html',	// Template
+		controller : 'UsersEditCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Modification du compte'}} // Titre de la page
+		}
 	})
 	.when('/panier', {
 		templateUrl : './partial/tpl-basket.html',	// Template
@@ -57,6 +63,12 @@ angular.module('app').config(function($routeProvider){
 		controller : 'SearchProductsByTypeCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Recherche'}} // Titre de la page
+		}
+	}).when('/creationproduit', {	// Route pour la page de creation de compte
+		templateUrl : './partial/tpl-create-product.html',	// Template
+		controller : 'CreateProductCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Créer un produit'}} // Titre de la page
 		}
 	}).when('/edit/:id', {	// Route pour l'édition d'un produit
 		templateUrl : './partial/tpl-edit-product.html',	// Template
