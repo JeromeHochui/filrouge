@@ -1,17 +1,34 @@
 <div class="alert alert-success" ng-show="message">Modifications enregistrées</div>
 
 
-<form class="form-group">
+<form class="form-group" name="editUser">
   	<label>Adresse mail: </label>
 	<p class="blue">{{user.email}}</p>	
+	
 	<label >Nom: </label>  
-	<input type="text" class="form-control" placeholder="name" ng-model="user.lastname">
+	<input type="text" class="form-control" placeholder="name" ng-model="user.lastname" name="lastname" required>
+	<span class="text-danger" ng-show="editUser.lastname.$error.required">
+   		<p>Le champ est requis</p>
+	</span>
+		
 	<label >Prénom: </label> 		
-	<input type="text"	class="form-control" ng-model="user.firstname"> 		
+	<input type="text"	class="form-control" ng-model="user.firstname" name="firstname" required>
+	<span class="text-danger" ng-show="editUser.firstname.$error.required">
+   		<p>Le champ est requis</p>
+	</span>
+	 		
 	<label >Date d'anniversaire: </label> 		
-	<input type="date"	class="form-control" ng-model="user.birthdate">
+	<input type="date"	class="form-control" ng-model="user.birthdate" name="date" required>
+	<span class="text-danger" ng-show="editUser.date.$error.required">
+   		<p>Le champ est requis</p>
+	</span>
+	
 	<label >Numéro de téléphone: </label> 		
-	<input type="text"	class="form-control" ng-model="user.phone">
+	<input type="text"	class="form-control" ng-model="user.phone" name="phone" required>
+	<span class="text-danger" ng-show="editUser.phone.$error.required">
+   		<p>Le champ est requis</p>
+	</span>
 	</br>			
-	<button type="submit" ng-click="editUser()" class="btn btn-primary">Valider les modifications</button>
+	
+	<span ng-show="editUser.$valid"><button type="submit" ng-click="editUser()" class="btn btn-primary">Valider les modifications</button></span>
 </form>

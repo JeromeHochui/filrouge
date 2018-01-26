@@ -5,8 +5,7 @@ angular.module('users').controller('UsersEditCtrl',	['$scope','usersEditSrv', 'c
 		
 		$rootScope.user = response.data;
 		$rootScope.user.birthdate = new Date($rootScope.user.birthdate);
-		console.log($rootScope.user.birthdate);
-		console.log('utilisateur : ', $rootScope.user);
+		
 	});
 	
 	$scope.editUser = function(){		
