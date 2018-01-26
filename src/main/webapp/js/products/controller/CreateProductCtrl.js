@@ -7,6 +7,6 @@ angular.module('products').controller('CreateProductCtrl', ['$scope','$rootScope
 		product.active = false;
 		console.log(product)
 		productSrv.addOne(product);
-		$scope.message = true;
+		$location.path('/catalogue/'+product.id)
 	};
 }]);
