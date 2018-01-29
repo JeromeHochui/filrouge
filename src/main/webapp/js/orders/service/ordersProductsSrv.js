@@ -1,20 +1,26 @@
 /**
  * 
  */
-angular.module('orders').service('ordersProductsSrv', ['$http', '$cookies', function ($http, $cookies) {
+angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$cookies', 'dateFilter', function ($rootScope, $http, $cookies, dateFilter) {
 	
 	var ordersProducts = [];
 	
-	function createReference(user){
-		
+	function createReference(){
+		var id = $rootScope.user.id;
+		var date = new Date();
+		return (""+id+"-"+dateFilter(date, 'yyyyMMdd')); // 14-20180129 par exemple
 	}
 	
-	this.createOrders = function(basket){
-		
-	}
+	return {
 
-	function createOrdersProducts(orderProductList){
+		createOrders : function(user){
+			var reference = createReference();
+			var dateCommand = dateFilter(new Date(), 'yyyy-MM-dd');
+			
+		},
 		
+		createOrdersProducts : function(orderProductList){
+			
+		}
 	}
-	
 }]);
