@@ -1,19 +1,25 @@
 angular.module('products').controller('ActivateProductCtrl', ['$scope', '$rootScope', '$routeParams', 'productSrv', 'titre', function($scope, $rootScope, $routeParams, productSrv, titre){
 	
 	$rootScope.titre = titre.libelle;
+	$scope.product = undefined;
+	var id = $routeParams.id
+	
+
 	
 	
-	$scope.activate = function(){
-		productSrv.activate().then(function(data){
+	productSrv.getOne(id).then(function(data){
+		$scope.product = data;
+		productSrv.activate($scope.product).then(function(){				
+			console.log("le produit est activé/désactivé sur"+$scope.product.productName);
 			
-			console.log("test");
-		
-		})
-		
-	}
+		});
+		console.log($scope.product);
+			
+	});
+	
+	
 	
 	
 }]);
-
 
 
