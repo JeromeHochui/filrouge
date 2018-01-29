@@ -25,7 +25,6 @@ angular.module('orders').factory('ordersBasketSrv',
 	
 	 function updateBasketCookies() {
 		var basketsCookie = {};
-		console.log('avant forEach', basket);
 		angular.forEach(basket, function(item, key) {
 			basketsCookie[key] = item;
 			console.log('key:', key, ' : ', item);

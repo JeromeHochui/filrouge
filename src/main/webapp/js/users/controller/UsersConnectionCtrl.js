@@ -2,7 +2,7 @@
  * 
  */
 angular.module('users').controller('UsersConnectionCtrl',
-		['$scope', '$rootScope', '$location', 'titre', 'connectionSrv', function($scope, $rootScope, $location, titre, connectionSrv){
+		['$scope', '$rootScope', 'titre', 'connectionSrv', function($scope, $rootScope, titre, connectionSrv){
 	$rootScope.titre = titre.libelle;
 	
 	$scope.connect = function(user){
@@ -12,7 +12,6 @@ angular.module('users').controller('UsersConnectionCtrl',
 				$rootScope.user = response.data;
 				console.log('utilisateur : ', $rootScope.user);
 			});
-			$location('/accueil');
 		});
 		
 	};
