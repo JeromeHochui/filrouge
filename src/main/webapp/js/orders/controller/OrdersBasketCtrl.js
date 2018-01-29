@@ -2,7 +2,7 @@
  * 
  */
 angular.module('orders').controller('OrdersBasketCtrl',
-		['$scope', '$rootScope', '$location', '$cookies', 'titre', 'ordersBasketSrv', 'ordersProductsSrv', function($scope, $rootScope, $location, $cookies, titre, ordersBasketSrv, orderProductsSrv){
+		['$scope', '$rootScope', '$location', '$cookies', 'titre', 'ordersBasketSrv', 'ordersProductsSrv', function($scope, $rootScope, $location, $cookies, titre, ordersBasketSrv, ordersProductsSrv){
 	
 	$scope.basket = [];
 	$rootScope.titre = titre.libelle;
@@ -30,7 +30,5 @@ angular.module('orders').controller('OrdersBasketCtrl',
 		calculQuantityTotal();
 	}
 	
-	$scope.createCommand = function(orders){
-		
-	}
+	$scope.reference = ordersProductsSrv.createReference();
 }]);
