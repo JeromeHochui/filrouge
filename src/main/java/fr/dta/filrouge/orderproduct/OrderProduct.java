@@ -11,6 +11,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import fr.dta.filrouge.orders.Orders;
 import fr.dta.filrouge.product.Product;
 
@@ -32,9 +34,11 @@ public class OrderProduct implements Serializable {
 	private Integer quantity;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("quantities")
 	private Orders orders;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("quantities")
 	private Product products;
 	
 	public OrderProduct() {}
