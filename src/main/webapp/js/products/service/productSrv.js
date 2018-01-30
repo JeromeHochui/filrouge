@@ -70,13 +70,12 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	
 	this.activate = function(data){
 		
-		var getActivate = $http.put('api/product/activate', data)
-			.then(function(response){
+		var getActivate = $http.put('api/product/activate', data);
+			return getActivate.then(function(response){
 				return response.data;
 			});
-				return getActivate;
-			}
-		
+				
+		}
 		
 	
 	

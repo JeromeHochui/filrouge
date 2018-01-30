@@ -82,8 +82,8 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Suppression'}} // Titre de la page
 		}
-	}).when('/activate/', {	// Route pour l'activation/désactivation
-		templateUrl : './partial/tpl-catalogue.html',	// Template
+	}).when('/activate/:id', {	// Route pour l'activation/désactivation
+		templateUrl : './partial/tpl-activate-product.html',	// Template
 		controller : 'ActivateProductCtrl',	// Controller
 		resolve : {
 			titre: function(){return {libelle : 'Activer/désactiver'}} // Titre de la page
