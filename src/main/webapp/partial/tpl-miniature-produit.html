@@ -1,5 +1,5 @@
 <div class="miniature-biere">
-	<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3>{{$ctrl.product.productName}}</h3></a>
+	<a class="col-xs-12" href="#!/catalogue/{{$ctrl.product.id}}"><h3 class="black">{{$ctrl.product.productName}}</h3></a>
 	<div class="col-xs-4 col-md-6">
 		<br>
 		<img alt="bière" class=img-responsive data-ng-src="{{$ctrl.product.pathPicture}}">
@@ -7,15 +7,15 @@
 		
 	</div>
 	<div class="col-xs-8 col-md-6 row">	
-		<a data-ng-show="$ctrl.product.active == true && $ctrl.user.isAdmin" href="#!/activate/{{$ctrl.product.id}}" class="red">Désactiver</a>
-		<a data-ng-show="$ctrl.product.active == false && $ctrl.user.isAdmin" href="#!/activate/{{$ctrl.product.id}}" class="green">Activer</a>			
-		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="col-xs-12" href="#!/edit/{{$ctrl.product.id}}"><p>Modifier</p></a>
-		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="col-xs-12" href="#!/delete/{{$ctrl.product.id}}"><p>Supprimer</p></a>
-		<p class="danger" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</p>
-		<p class="danger" id="green">Stock: 
-			<span data-ng-show="$ctrl.product.stock > 0" >{{$ctrl.product.stock}}</span>
-			<span data-ng-show="$ctrl.product.stock <= 0" >Non disponible</span>
-		</p>		
+		<a data-ng-show="$ctrl.product.active == true && $ctrl.user.isAdmin" href="#!/activate/{{$ctrl.product.id}}" class="glyphicon glyphicon-off col-xs-12 red"><p>Désactiver</p></a>
+		<a data-ng-show="$ctrl.product.active == false && $ctrl.user.isAdmin" href="#!/activate/{{$ctrl.product.id}}" class="glyphicon glyphicon-off col-xs-12 green"><p>Activer</p></a>			
+		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="col-xs-6 glyphicon glyphicon-cog" href="#!/edit/{{$ctrl.product.id}}"><p>Editer</p></a>
+		<a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="col-xs-6 glyphicon glyphicon-trash red" href="#!/delete/{{$ctrl.product.id}}"><p>Supprimer</p></a><br>		
+		<p class="black">Stock: 
+			<span data-ng-show="$ctrl.product.stock > 0" class="green">{{$ctrl.product.stock}}</span>
+			<span data-ng-show="$ctrl.product.stock <= 0" class="red">Non disponible</span>
+		</p>
+		<h4 class="red row col-xs-12" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</h4>		
 		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>
 	</div>
 	
