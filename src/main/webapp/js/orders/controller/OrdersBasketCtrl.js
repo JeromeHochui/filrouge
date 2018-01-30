@@ -11,7 +11,7 @@ angular.module('orders').controller('OrdersBasketCtrl',
 	function calculPrixTotal(){
 		$scope.totalPrice = 0;
 		angular.forEach($scope.basket, function(value, key){
-			$scope.totalPrice += (value.quantity * value.product.price);
+			$scope.totalPrice += (value.quantity * value.products.price);
 		})
 	}
 	calculPrixTotal();
@@ -31,4 +31,5 @@ angular.module('orders').controller('OrdersBasketCtrl',
 	}
 	
 	$scope.reference = ordersProductsSrv.createReference();
+	console.log('ref', $scope.reference);
 }]);

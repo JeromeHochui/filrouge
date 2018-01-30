@@ -43,7 +43,7 @@ angular.module('orders').factory('ordersBasketSrv',
 				// On crée l'objet orderProduct correspondant à l'ajout du produit et de sa quantité pour la commande
 				var orderProduct = {};
 				orderProduct.quantity = quantity;
-				orderProduct.product = product;
+				orderProduct.products = product;
 				
 				// On ajoute le couple produit / quantité à la commande
 				basket.push(orderProduct);
@@ -71,7 +71,7 @@ angular.module('orders').factory('ordersBasketSrv',
 		// Fonction pour supprimer un produit du panier
 		removeFromBasket : function(productId){
 			angular.forEach(basket, function(value, key){
-				if(value.product.id == productId){
+				if(value.products.id == productId){
 					//Avec splice() on peut enlever à l'index/index+1 un item de la liste
 					basket.splice(key, 1);
 				}

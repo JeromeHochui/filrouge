@@ -19,9 +19,9 @@
 	</div>
 	<div class="row col-md-2">
 		<br>
-		<span>Sous-total : ( {{totalQuantity}} article(s))</span>
+		<span>Sous-total : <span ng-if="totalQuantity !== undefined">{{totalQuantity}}</span><span ng-if="totalQuantity == undefined">0</span> article(s)</span>
 		<br>
-		<span>{{totalPrice | number:2}}&euro;</span>
+		<span ng-if="totalPrice !== undefined">{{totalPrice | number:2}}&euro;</span><span ng-if="totalPrice == undefined">0 &euro;</span>
 		<br>
 		<button type="submit" class="btn btn-default" data-ng-click="command(basket)">Passer la commande</button>
 	</div>

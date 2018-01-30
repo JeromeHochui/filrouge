@@ -5,22 +5,45 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$
 	
 	var ordersProducts = [];
 	
-	function createReference(){
+	function refCreator(){
 		var id = $rootScope.user.id;
 		var date = new Date();
 		return (""+id+"-"+dateFilter(date, 'yyyyMMdd')); // 14-20180129 par exemple
 	}
 	
+	function createOrdersProducts (orderProductList, order){
+		angular.forEach(orderProductList, function(value, key){
+			value.orders = order;
+			$http.post('/api/order-product/create', value).then(function(response){
+				console.log('Success', response);
+			},function(reason){
+				console.log('Error', reason);
+			});
+		});
+	}
+	
 	return {
 
-		createOrders : function(user){
-			var reference = createReference();
+		createOrders : function(user, basket){
+			var ref = createReference();
 			var dateCommand = dateFilter(new Date(), 'yyyy-MM-dd');
+			var order = {
+					reference: ref,
+					commandDate: dateCommand,
+					users: user
+					};
 			
+			$http.post('/api/orders/create', order).then(function (response) {
+				createOrdersProducts(basket, response.data);
+			}, function (reason) {
+				console.log('Error', reason);
+			});
 		},
 		
-		createOrdersProducts : function(orderProductList){
-			
+		createReference : function () {
+			return refCreator();
 		}
+		
+		
 	}
 }]);
