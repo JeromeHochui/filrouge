@@ -1,0 +1,29 @@
+<div class="container-fluid row">
+	<div class=" col-md-12">
+		<h1>Votre commande n°{{order.reference}}</h1>
+		<div>
+		<span><h3>Total :</h3> <span ng-if="totalQuantity !== undefined">{{totalQuantity}}</span><span ng-if="totalQuantity == undefined">0</span><strong> article(s)</strong></span>
+		<br>
+		<span ng-if="totalPrice !== undefined">{{totalPrice | number:2}}&euro;</span><span ng-if="totalPrice == undefined">0 &euro;</span>
+		</div>
+		<br>
+		
+		<div class="row">
+			<div class="col-md-5"><strong>Article</strong></div>
+			<span class="col-md-2"><strong>Prix unitaire</strong></span>
+			<span class="col-md-2"><strong>Quantité</strong></span>
+			<span class="col-md-2"><strong>Prix total</strong></span>
+			
+		</div>
+		<div class="row" data-ng-repeat="item in order.quantities">
+			<div class="col-md-5" >
+				<span><a href="#!/catalogue/{{item.products.id}}">{{item.products.productName}}</a></span>
+			</div>
+			<div class="col-md-2"><span class="prix">{{item.products.price | number:2}} &euro;</span></div>
+			<div class="col-md-2"><span>{{item.quantity}}</span></div>
+			<div class="col-md-2"><span>{{item.products.price * item.quantity | number:2}} &euro;</span></div>
+		</div>
+		<br>
+	</div>
+</div>
+<br>
