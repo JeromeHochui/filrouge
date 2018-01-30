@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,6 +19,7 @@ import javax.persistence.Transient;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import fr.dta.filrouge.orderproduct.OrderProduct;
 
@@ -61,8 +63,8 @@ public class Product implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Container container;
 	
-	@OneToMany(mappedBy = "products")
-	@JsonIgnore
+	@OneToMany(mappedBy = "products", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("products")
 	private List<OrderProduct> quantities = new ArrayList<>();
 	
 	@Column(name = "active")
