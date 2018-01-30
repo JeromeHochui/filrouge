@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="row col-md-10">
+		<h1>Historique des commandes</h1>
+
+		<div class="row">
+			<span class="col-md-3">Réference</span>
+			<span class="col-md-3">Date de commande</span>
+			<span class="col-md-2">Prix total</span>
+			<span class="col-md-3">Nombre Produit Commandés</span>
+		</div>
+		<div class="row" data-ng-repeat="item in orders">
+			<div class="col-md-3" >
+				<span>{{item.reference}}</span>
+			</div>
+			<div class="col-md-3"><span class="prix">{{item.commandDate}}</span></div>
+			<div class="col-md-2"><span>{{item.total}}</span></div>
+			<div class="col-md-3"><span>{{item.totalQuantity}}</span></div>
+		</div>
+		<br>
+	</div>
+</div>
+<br>

@@ -42,7 +42,6 @@ public class Orders implements Serializable {
 	private String reference;
 	
 	@Column
-	@Transient
 	private Float total;
 	
 	@Column(name = "command_date")

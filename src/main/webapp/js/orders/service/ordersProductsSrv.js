@@ -1,7 +1,7 @@
 /**
  * 
  */
-angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$cookies', 'dateFilter', function ($rootScope, $http, $cookies, dateFilter) {
+angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', 'dateFilter', function ($rootScope, $http, dateFilter) {
 	
 	var ordersProducts = [];
 	
@@ -12,11 +12,27 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$
 		return (alea+"-"+id+"-"+dateFilter(date, 'yyyyMMdd')); // 14-20180129 par exemple
 	}
 	
+	function calculPrixTotal(basket){
+		var totalPrice = 0;
+		angular.forEach(basket, function(value, key){
+			totalPrice += (value.quantity * value.products.price);
+		})
+		return totalPrice;
+	}
+	
 	function createOrdersProducts (orderProductList, order){
 		angular.forEach(orderProductList, function(value, key){
 			value.orders = order;
+			var p = value.products;
+			if(p.stock > value.quantity){
+				p.stock = p.stock - value.quantity;
+			} else {
+				value.quantity = p.stock;
+				p.stock = 0;
+			}
 			$http.post('/api/order-product/create', value).then(function(response){
 				console.log('Success', response);
+				$http.post('/api/product/update', p)
 			},function(reason){
 				console.log('Error', reason);
 			});
@@ -28,10 +44,12 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$
 		createOrder : function(user, basket){
 			var ref = refCreator();
 			var dateCommand = dateFilter(new Date(), 'yyyy-MM-dd');
+			var prixTotal = calculPrixTotal(basket);
 			var order = {
 					reference: ref,
 					commandDate: dateCommand,
-					users: user
+					users: user,
+					total: prixTotal
 					};
 			
 			$http.post('/api/orders/create', order).then(function (response) {

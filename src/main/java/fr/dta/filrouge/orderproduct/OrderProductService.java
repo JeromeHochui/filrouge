@@ -31,4 +31,8 @@ public class OrderProductService {
 	public void delete (Long id) {
 		repository.delete(repository.findById(id));
 	}
+	
+	public List<OrderProduct> getByOrdersId (Long id) {
+		return repository.findByOrdersId(id);
+	}
 }

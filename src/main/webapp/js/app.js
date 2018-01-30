@@ -88,6 +88,12 @@ angular.module('app').config(function($routeProvider){
 		resolve : {
 			titre: function(){return {libelle : 'Activer/désactiver'}} // Titre de la page
 		}
+	}).when('/historique', {	// Route pour l'historique des commandes
+		templateUrl : './partial/tpl-histo-command.html',	// Template
+		controller : 'HistoOrdersCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Historique'}} // Titre de la page
+		}
 	});
 	$routeProvider.otherwise({	// Route par défaut
 		redirectTo : '/accueil'

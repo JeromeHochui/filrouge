@@ -66,5 +66,15 @@ public class OrderProductController {
 		service.delete(id);
 	}
 	
+	@CrossOrigin
+	@RequestMapping(value = "by-order/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<OrderProduct> getByOrderId (@PathVariable Long id) {
+		List<OrderProduct> opList = service.getByOrdersId(id);
+		if(opList == null) {
+			throw new NotFoundException();
+		}
+		return opList;
+	}
+	
 	
 }
