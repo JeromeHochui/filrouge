@@ -3,7 +3,7 @@
  */
 angular.module('users').component('connectForm', {
 	templateUrl: './partial/tpl-connexion.html',
-	controller: ['$rootScope', '$location', 'connectionSrv', function($rootScope, $location, connectionSrv){
+	controller: ['$rootScope', '$location', 'connectionSrv', 'ordersBasketSrv' , function($rootScope, $location, connectionSrv, ordersBasketSrv){
 		
 		this.connect = function(user){
 			connectionSrv.connect(user.email, user.password).then(function(response){
@@ -14,10 +14,12 @@ angular.module('users').component('connectForm', {
 					$rootScope.user = response.data;
 					console.log('utilisateur : ', $rootScope.user);
 				});
-				$location.path('/accueil');
+				if((ordersBasketSrv.getBasket().length !== undefined) && (ordersBasketSrv.getBasket().length > 0)){
+					$location.path('/panier');
+				} else {
+					$location.path('/accueil');
+				}
 			});
-			
-			
 		}
 	}],
 	bindings: {

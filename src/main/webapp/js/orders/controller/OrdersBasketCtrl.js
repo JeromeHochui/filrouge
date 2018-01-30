@@ -11,7 +11,7 @@ angular.module('orders').controller('OrdersBasketCtrl',
 	function calculPrixTotal(){
 		$scope.totalPrice = 0;
 		angular.forEach($scope.basket, function(value, key){
-			$scope.totalPrice += (value.quantity * value.product.price);
+			$scope.totalPrice += (value.quantity * value.products.price);
 		})
 	}
 	calculPrixTotal();
@@ -30,5 +30,16 @@ angular.module('orders').controller('OrdersBasketCtrl',
 		calculQuantityTotal();
 	}
 	
-	$scope.reference = ordersProductsSrv.createReference();
+	$scope.createOrder = function(){
+		if($rootScope.user!== undefined){
+			console.log('avant fonction create');
+			ordersProductsSrv.createOrder($rootScope.user, $scope.basket);
+			console.log('createOrder');
+			ordersBasketSrv.emptyBasket();
+			$scope.basket = ordersBasketSrv.getBasket();
+		} else {
+			$location.path('/connection');
+		}
+	}
+	
 }]);

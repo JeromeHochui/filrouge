@@ -9,21 +9,21 @@
 		</div>
 		<div class="row" data-ng-repeat="item in basket">
 			<div class="col-md-5" >
-				<span>{{item.product.productName}}</span>
+				<span>{{item.products.productName}}</span>
 			</div>
-			<div class="col-md-2"><span class="prix">{{item.product.price | number:2}} &euro;</span></div>
+			<div class="col-md-2"><span class="prix">{{item.products.price | number:2}} &euro;</span></div>
 			<div class="col-md-2"><span>{{item.quantity}}</span></div>
-			<div class="col-md-2"><span><button class="btn btn-default" data-ng-click="removeFromBasket(item.product.id)">Supprimer</button></span></div>
+			<div class="col-md-2"><span><button class="btn btn-default" data-ng-click="removeFromBasket(item.products.id)">Supprimer</button></span></div>
 		</div>
 		<br>
 	</div>
 	<div class="row col-md-2">
 		<br>
-		<span>Sous-total : ( {{totalQuantity}} article(s))</span>
+		<span>Sous-total : <span ng-if="totalQuantity !== undefined">{{totalQuantity}}</span><span ng-if="totalQuantity == undefined">0</span> article(s)</span>
 		<br>
-		<span>{{totalPrice | number:2}}&euro;</span>
+		<span ng-if="totalPrice !== undefined">{{totalPrice | number:2}}&euro;</span><span ng-if="totalPrice == undefined">0 &euro;</span>
 		<br>
-		<button type="submit" class="btn btn-default" data-ng-click="command(basket)">Passer la commande</button>
+		<button class="btn btn-default" data-ng-click="createOrder()">Passer la commande</button>
 	</div>
 </div>
 <br>

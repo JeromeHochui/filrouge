@@ -76,10 +76,6 @@ angular.module('products').service("productSrv", ['$http', function($http){
 			});
 				
 		}
-		
-	
-	
-	
 }]);
 
 
