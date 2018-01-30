@@ -8,7 +8,8 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$
 	function refCreator(){
 		var id = $rootScope.user.id;
 		var date = new Date();
-		return (""+id+"-"+dateFilter(date, 'yyyyMMdd')); // 14-20180129 par exemple
+		var alea = Math.floor(Math.random() * (9999 - 1000) + 1000);
+		return (alea+"-"+id+"-"+dateFilter(date, 'yyyyMMdd')); // 14-20180129 par exemple
 	}
 	
 	function createOrdersProducts (orderProductList, order){
@@ -24,8 +25,8 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$
 	
 	return {
 
-		createOrders : function(user, basket){
-			var ref = createReference();
+		createOrder : function(user, basket){
+			var ref = refCreator();
 			var dateCommand = dateFilter(new Date(), 'yyyy-MM-dd');
 			var order = {
 					reference: ref,

@@ -30,6 +30,16 @@ angular.module('orders').controller('OrdersBasketCtrl',
 		calculQuantityTotal();
 	}
 	
-	$scope.reference = ordersProductsSrv.createReference();
-	console.log('ref', $scope.reference);
+	$scope.createOrder = function(){
+		if($rootScope.user!== undefined){
+			console.log('avant fonction create');
+			ordersProductsSrv.createOrder($rootScope.user, $scope.basket);
+			console.log('createOrder');
+			ordersBasketSrv.emptyBasket();
+			$scope.basket = ordersBasketSrv.getBasket();
+		} else {
+			$location.path('/connection');
+		}
+	}
+	
 }]);

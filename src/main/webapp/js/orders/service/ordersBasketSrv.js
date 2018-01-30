@@ -58,6 +58,7 @@ angular.module('orders').factory('ordersBasketSrv',
 			if(basket.length !== undefined) {
 				basketsCookie = $cookies.getObject('basket');
 				console.log('basketsCookie', basketsCookie);
+				console.log(basket);
 				if(basketsCookie) {
 					angular.forEach(basketsCookie, function(item, key) {
 						basket[key] = item;
