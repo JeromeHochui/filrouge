@@ -11,7 +11,9 @@ angular.module('products').controller('ActivateProductCtrl', ['$scope', '$rootSc
 		$scope.product = data;
 		productSrv.activate($scope.product).then(function(){				
 			console.log("le produit est activé/désactivé sur"+$scope.product.productName);
-			
+			productSrv.getAll().then(function(list){
+				$scope.list = list;
+			});
 		});
 		console.log($scope.product);
 			

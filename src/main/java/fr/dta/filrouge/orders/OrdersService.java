@@ -14,17 +14,21 @@ public class OrdersService {
 	
 	public Orders getById(Long id) {
 		Orders o = repository.findById(id);
-		Hibernate.initialize(o);
+		Hibernate.initialize(o.getQuantities());
 		return o;
 	}
 	
 	public List<Orders> getByUsersId(Long id) {
-		return repository.findByUsersId(id);
+		List<Orders> lo = repository.findByUsersId(id);
+		for (Orders o : lo) {
+			Hibernate.initialize(o.getQuantities());
+		}
+		return lo;
 	}
 	
 	public Orders getByReference(String ref) {
 		Orders o = repository.findByReference(ref);
-		Hibernate.initialize(o);
+		Hibernate.initialize(o.getQuantities());
 		return o;
 	}
 	
