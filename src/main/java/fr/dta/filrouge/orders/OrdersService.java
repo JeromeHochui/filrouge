@@ -15,6 +15,14 @@ public class OrdersService {
 		return repository.findById(id);
 	}
 	
+	public List<Orders> getByUsersId(Long id) {
+		return repository.findByUsersId(id);
+	}
+	
+	public Orders getByReference(String ref) {
+		return repository.findByReference(ref);
+	}
+	
 	public List<Orders> getAll () {
 		return repository.findAll();
 	}

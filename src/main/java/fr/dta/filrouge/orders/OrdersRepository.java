@@ -23,5 +23,5 @@ public interface OrdersRepository extends JpaRepository<Orders, Long> {
 	
 	//@RestResource(path="findByUserId", rel="findByUserId")
 	//@Query("select o from Orders o where o.users.id = :id")
-	Orders findByUsersId(Long id);
+	List<Orders> findByUsersId(Long id);
 }

@@ -45,6 +45,26 @@ public class OrdersController {
 	}
 	
 	@CrossOrigin
+	@RequestMapping(value = "by-user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getByUsersId (@PathVariable Long id) {
+		List<Orders> orders = service.getByUsersId(id);
+		if (orders == null) {
+			throw new NotFoundException();
+		}
+		return orders;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "by-ref/{ref}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Orders getByReference (@PathVariable String ref) {
+		Orders order = service.getByReference(ref);
+		if (order == null) {
+			throw new NotFoundException();
+		}
+		return order;
+	}
+	
+	@CrossOrigin
 	@RequestMapping(path = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public Orders create (@RequestBody Orders order) {
