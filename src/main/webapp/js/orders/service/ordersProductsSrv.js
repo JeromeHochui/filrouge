@@ -41,6 +41,17 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', '$
 			});
 		},
 		
+		getOrder : function (id) {
+			var ps = {};
+			if(!ps[id]){
+				ps[id] = $http.get('/api/orders/'+id);
+			}
+			var p2 = ps[id].then(function(response){
+				return response.data;
+			});
+			return p2;
+		},
+		
 		createReference : function () {
 			return refCreator();
 		}
