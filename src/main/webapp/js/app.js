@@ -52,6 +52,13 @@ angular.module('app').config(function($routeProvider){
 			titre: function(){return {libelle : 'Panier'}} // Titre de la page
 		}
 	})
+	.when('/order/:id', {	// Route pour le detail d'une commande
+		templateUrl : './partial/tpl-details-commande.html',	// Template
+		controller : 'OrdersCtrl',	// Controller
+		resolve : {
+			titre: function(){return {libelle : 'Detail de commande'}} // Titre de la page
+		}
+	})
 	.when('/search/:name', {	// Route pour la recherche (pour le moment que par nom)
 		templateUrl : './partial/tpl-search.html',	// Template
 		controller : 'SearchProductsCtrl',	// Controller
