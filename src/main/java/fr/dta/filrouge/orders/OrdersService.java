@@ -2,6 +2,7 @@ package fr.dta.filrouge.orders;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,9 @@ public class OrdersService {
 	
 	
 	public Orders getById(Long id) {
-		return repository.findById(id);
+		Orders o = repository.findById(id);
+		Hibernate.initialize(o);
+		return o;
 	}
 	
 	public List<Orders> getByUsersId(Long id) {
@@ -20,7 +23,9 @@ public class OrdersService {
 	}
 	
 	public Orders getByReference(String ref) {
-		return repository.findByReference(ref);
+		Orders o = repository.findByReference(ref);
+		Hibernate.initialize(o);
+		return o;
 	}
 	
 	public List<Orders> getAll () {
