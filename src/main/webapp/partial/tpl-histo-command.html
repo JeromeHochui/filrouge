@@ -10,7 +10,7 @@
 		</div>
 		<div class="row" data-ng-repeat="item in orders">
 			<div class="col-md-3" >
-				<span>{{item.reference}}</span>
+				<span><a href="#!/orders/{{item.id}}">{{item.reference}}</a></span>
 			</div>
 			<div class="col-md-3"><span class="prix">{{item.commandDate}}</span></div>
 			<div class="col-md-2"><span>{{item.total}}</span></div>
