@@ -16,7 +16,7 @@
 			<span data-ng-show="$ctrl.product.stock > 0" class="green">{{$ctrl.product.stock}}</span>
 			<span data-ng-show="$ctrl.product.stock <= 0" class="red">Non disponible</span>
 		</p>
-		<h4 class="red row col-xs-12" id="redDanger">PRIX: {{$ctrl.product.price}} &euro;</h4>		
+		<h4 class="red row col-xs-12" id="redDanger">{{$ctrl.product.price}} &euro;</h4>		
 		<ajout-panier product="$ctrl.product" quantity="$ctrl.quantity" mini="$ctrl.mini"></ajout-panier>
 	</div>
 	

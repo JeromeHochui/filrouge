@@ -61,12 +61,10 @@ angular.module('products').service("productSrv", ['$http', function($http){
 	
 	this.searchByType = function(type){
 		
-		var getType = $http.get('api/product/search', {params:{type:type}})
-			.then(function(response){
-				return response.data;
-			});
-				return getType;
-			}
+		return $http.get('api/product/search', {params:{type:type}}).then(function(response){
+			return response.data;
+		});
+	}
 	
 	this.activate = function(data){
 		

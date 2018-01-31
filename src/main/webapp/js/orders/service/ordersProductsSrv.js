@@ -1,7 +1,7 @@
 /**
  * 
  */
-angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', 'dateFilter', function ($rootScope, $http, dateFilter) {
+angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', 'dateFilter', 'productSrv', function ($rootScope, $http, dateFilter, productSrv) {
 	
 	var ordersProducts = [];
 	
@@ -32,7 +32,9 @@ angular.module('orders').factory('ordersProductsSrv', ['$rootScope', '$http', 'd
 			}
 			$http.post('/api/order-product/create', value).then(function(response){
 				console.log('Success', response);
-				$http.post('/api/product/update', p)
+				$http.put('/api/product/update', p).then(function(response){
+					console.log('response', response);
+				})
 			},function(reason){
 				console.log('Error', reason);
 			});

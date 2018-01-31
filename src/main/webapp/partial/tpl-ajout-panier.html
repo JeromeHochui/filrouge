@@ -3,6 +3,7 @@
 	<div >
 		<h1 class="text-center red"><span data-ng-bind="$ctrl.product.price"></span>&euro;</h1>
 		<p class="text-center" id="green" data-ng-if="$ctrl.product.active && $ctrl.product.stock > 0">En stock</p>
+		<span data-ng-show="$ctrl.product.stock > 0" class="green">{{$ctrl.product.stock}} disponibles</span> 
 		<p class="text-center" id="danger" data-ng-if="!$ctrl.product.active || $ctrl.product.stock == 0">Non disponible</p>
 		<p class="text-center">Quantité :</p>
 	</div>

@@ -7,6 +7,7 @@ angular.module('app').component('ajoutPanier', {
 	controller: ['ordersBasketSrv', function(ordersBasketSrv){
 		
 		this.addToBasket = function(product, quantity){
+			ordersBasketSrv.removeFromBasket(product.id);
 			ordersBasketSrv.addToBasket(product, quantity);
 			console.log('addToBasket', product);
 			//$location.path('#!/panier');
