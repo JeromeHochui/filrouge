@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <nav class="menu navbar navbar-dark ">
 	<div class="navbar-header menu col-md-2">
 		<a id="" class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Accueil</a>
@@ -19,13 +20,13 @@
 					<span data-ng-show="$ctrl.user == undefined" >Options</span>
 					<span class="caret"></span></a>
 					<ul data-uib-dropdown-menu>
-						<li ><a data-ng-show="$ctrl.user != undefined" href="#!/modificationcompte">Mon profil</a></li><!-- Lien pour le profil à ajouter -->
+						<li ><a data-ng-show="$ctrl.user != undefined" href="#!/modificationcompte">Mon profil</a></li><!-- Lien pour le profil Ã  ajouter -->
 						<li><a data-ng-show="$ctrl.user != undefined" href="#!/historique">Historique</a></li>
 						<li ><a href="#!/panier">Mon panier</a></li><!-- Lien du panier -->
 						<li data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" class="divider"></li>
 						<li ><a data-ng-show="$ctrl.user != undefined && $ctrl.user.isAdmin" href="#!/catalogue">Administration</a></li>
 						<li class="divider"></li>
-						<li><a data-ng-show="$ctrl.user != undefined" href="#!/accueil" data-ng-click="$ctrl.logout()">Deconnexion</a></li>
+						<li><a data-ng-show="$ctrl.user != undefined" href="#!/accueil" data-ng-click="$ctrl.logout()">Déconnexion</a></li>
 						<li><a data-ng-show="$ctrl.user == undefined" href="#!/connection" >Connexion</a></li>
 						<li><a data-ng-show="$ctrl.user == undefined" href="#!/inscription" >Inscription</a></li>
 						

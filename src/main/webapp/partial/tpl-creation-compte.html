@@ -1,10 +1,11 @@
+<meta charset="UTF-8">
 <h1>Créer un compte client</h1>
 <form name="form" action="#!/connection">		  
     <label for="nom">Nom: </label>
     <input type="text" id="nom" ng-model="user.lastname" class="form-control" placeholder="Nom" required/>
     
     <label for="prenom">Prénom: </label>
-    <input type="text" id="prenom" ng-model="user.firstname" class="form-control" placeholder="Prénom" required/>
+    <input type="text" id="prenom" ng-model="user.firstname" class="form-control" placeholder="PrÃ©nom" required/>
     
     <label for="email">E-mail (pour se connecter): </label>
     <input type="email" id="email" ng-model="user.email" name="uEmail" class="form-control" placeholder="E-mail" required/>
@@ -18,7 +19,7 @@
     <label for="password">Mot de passe: </label>
     <input type="password" id="password" ng-model="user.password" class="form-control" placeholder="Mot de passe" required/>
 
-    <label for="passwordRepaet">Mot de passe à nouveau: </label>
+    <label for="passwordRepaet">Mot de passe à  nouveau: </label>
     <input type="password" id="passwordRepaet" name="confirmPassword" ng-model="user.passwordRepeat" compare-to="user.password" class="form-control" placeholder="Mot de passe" required/>
 
     <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
@@ -30,7 +31,7 @@
     <input type="text" id="adresse" ng-model="user.adress" class="form-control" placeholder="Adresse" required/>
     
     <label for="telephone">Téléphone: </label>
-    <input type="text" id="telephone" ng-model="user.phone" class="form-control" placeholder="Téléphone">	 
+    <input type="text" id="telephone" ng-model="user.phone" class="form-control" placeholder="TÃ©lÃ©phone">	 
     
     <label for="dateNaissance">Date de naissance: </label>
     <input type="date" id="dateNaissance" ng-model="user.birthdate" class="form-control" placeholder="Date de naissance">
