@@ -1,7 +1,7 @@
 <div class="alert alert-success" ng-show="message">Modifications enregistrées</div>
 
 
-<form class="form-group" name="editUser">
+<form class="form-group" name="editUserForm">
   	<label>Adresse mail: </label>
 	<p class="blue">{{user.email}}</p>	
 	
@@ -30,5 +30,5 @@
 	</span>
 	</br>			
 	
-	<span ng-show="editUser.$valid"><button type="submit" ng-click="editUser()" class="btn btn-primary">Valider les modifications</button></span>
+	<span ng-show="editUserForm.$valid"><button type="submit" ng-click="editUser()" class="btn btn-primary">Valider les modifications</button></span>
 </form>

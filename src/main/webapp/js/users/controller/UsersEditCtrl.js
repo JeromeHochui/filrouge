@@ -10,8 +10,8 @@ angular.module('users').controller('UsersEditCtrl',	['$scope','usersEditSrv', 'c
 	
 	$scope.editUser = function(){		
 		
- 		usersEditSrv.edit($scope.user).then(function(userEdit){
- 			$scope.product = userEdit;
+ 		usersEditSrv.edit($rootScope.user).then(function(userEdit){
+ 			$rootScope.user = userEdit;
  			$scope.message = true;
  			
  			
