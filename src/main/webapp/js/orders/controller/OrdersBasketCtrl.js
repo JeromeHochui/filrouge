@@ -37,6 +37,7 @@ angular.module('orders').controller('OrdersBasketCtrl',
 			console.log('createOrder');
 			ordersBasketSrv.emptyBasket();
 			$scope.basket = ordersBasketSrv.getBasket();
+			$location.path('/historique');
 		} else {
 			$location.path('/connection');
 		}

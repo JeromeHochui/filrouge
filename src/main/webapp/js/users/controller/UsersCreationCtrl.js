@@ -5,5 +5,6 @@ angular.module('users').controller('UsersCreationCtrl',
 	
 	$scope.create = function(user){
  		usersCreationSrv.create(user);
+ 		$location.path('/connection');
 	};
 }]);

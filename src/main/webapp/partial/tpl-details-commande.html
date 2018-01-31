@@ -1,14 +1,15 @@
 <meta charset="UTF-8">
 <div class="container-fluid row">
 	<div class=" col-md-12">
+		<br>
+		<a class="btn btn-default" href="#!/historique">Revenir à l'historique</a>
 		<h1>Votre commande n°{{order.reference}}</h1>
 		<div>
-		<span><h3>Total :</h3> <span ng-if="totalQuantity !== undefined">{{totalQuantity}}</span><span ng-if="totalQuantity == undefined">0</span><strong> article(s)</strong></span>
-		<br>
-		<span ng-if="totalPrice !== undefined">{{totalPrice | number:2}}&euro;</span><span ng-if="totalPrice == undefined">0 &euro;</span>
+			<span><h3>Total :</h3> <span ng-if="totalQuantity !== undefined">{{totalQuantity}}</span><span ng-if="totalQuantity == undefined">0</span><strong> article(s)</strong></span>
+			<br>
+			<span ng-if="totalPrice !== undefined">{{totalPrice | number:2}}&euro;</span><span ng-if="totalPrice == undefined">0 &euro;</span>
 		</div>
 		<br>
-		
 		<div class="row">
 			<div class="col-md-5"><strong>Article</strong></div>
 			<span class="col-md-2"><strong>Prix unitaire</strong></span>
